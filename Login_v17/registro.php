@@ -69,7 +69,7 @@
 					</div>
 
 					<div class="w-full text-center">
-						<a href="index.html" class="txt3">
+						<a href="index.php" class="txt3">
 							Iniciar Sesion
 						</a>
 					</div>

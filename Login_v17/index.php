@@ -63,7 +63,7 @@
 					</div>
 
 					<div class="w-full text-center">
-						<a href="index.html" class="txt3">
+						<a href="registro.php" class="txt3">
 							Registrarse
 						</a>
 					</div>

@@ -45,7 +45,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="img/log.jpg" alt="" style="width: 10rem;">
                                     </a>
                                 </div>
@@ -54,22 +54,22 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="index.html">Inicio</a></li>
-                                            <li><a href="about.html">informacion</a></li>
-                                            <li><a class="" href="travel_destination.html">Destinos</a></l/li>
+                                            <li><a class="active" href="index.php">Inicio</a></li>
+                                            <li><a href="about.php">informacion</a></li>
+                                            <li><a class="" href="travel_destination.php">Destinos</a></l/li>
                                             <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                        <li><a href="destination_details.html">Destino detalles</a></li>
-                                                        <li><a href="elements.html">Elementos</a></li>
+                                                        <li><a href="destination_details.php">Destino detalles</a></li>
+                                                        <li><a href="elements.php">Elementos</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                    <li><a href="blog.php">blog</a></li>
+                                                    <li><a href="single-blog.php">single-blog</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contactanos</a></li>
+                                            <li><a href="contact.php">Contactanos</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -85,7 +85,7 @@
                                             <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
                                             <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
                                             <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                                            <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                            <li><a href="cart.php"><span class="flaticon-shopping-cart"></span></a> </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@
                             <img src="img/destination/quito.jpeg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Quito <a href="travel_destination.html">  07 lugares turisticos</a> </p>
+                            <p class="d-flex align-items-center">Quito <a href="travel_destination.php">  07 lugares turisticos</a> </p>
                             
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                             <img src="img/destination/ambato.jpg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Ambato <a href="travel_destination.html">  03 lugares turisticos</a> </p>
+                            <p class="d-flex align-items-center">Ambato <a href="travel_destination.php">  03 lugares turisticos</a> </p>
                             
                         </div>
                     </div>
@@ -232,7 +232,7 @@
                             <img src="img/destination/cuenca.jpg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Cuenca <a href="travel_destination.html">  10 lugares turisticos</a> </p>
+                            <p class="d-flex align-items-center">Cuenca <a href="travel_destination.php">  10 lugares turisticos</a> </p>
                             
                         </div>
                     </div>
@@ -243,7 +243,7 @@
                             <img src="img/destination/salinas.jpg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Salinas <a href="travel_destination.html">  02 lugares turisticos</a> </p>
+                            <p class="d-flex align-items-center">Salinas <a href="travel_destination.php">  02 lugares turisticos</a> </p>
                             
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                             <img src="img/destination/guayaquil.jpg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Guayaquil <a href="travel_destination.html">  02 lugares turisticos</a> </p>
+                            <p class="d-flex align-items-center">Guayaquil <a href="travel_destination.php">  02 lugares turisticos</a> </p>
                             
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                             <img src="img/destination/ibarra.JPG" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Ibarra <a href="travel_destination.html">  05 lugares turisticos</a> </p>
+                            <p class="d-flex align-items-center">Ibarra <a href="travel_destination.php">  05 lugares turisticos</a> </p>
                             
                         </div>
                     </div>
@@ -328,7 +328,7 @@
                             <a href="#" class="prise">$500</a>
                         </div>
                         <div class="place_info">
-                            <a href="destination_details.html"><h3>Ciudad Mitad del Mundo</h3></a>
+                            <a href="destination_details.php"><h3>Ciudad Mitad del Mundo</h3></a>
                             <p>Quito</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
@@ -354,7 +354,7 @@
                             <a href="#" class="prise">$500</a>
                         </div>
                         <div class="place_info">
-                            <a href="destination_details.html"><h3>Teleferico Quito</h3></a>
+                            <a href="destination_details.php"><h3>Teleferico Quito</h3></a>
                             <p>Quito</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
@@ -380,7 +380,7 @@
                             <a href="#" class="prise">$500</a>
                         </div>
                         <div class="place_info">
-                            <a href="destination_details.html"><h3>Volcan Pichincha</h3></a>
+                            <a href="destination_details.php"><h3>Volcan Pichincha</h3></a>
                             <p>Quito</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
@@ -406,7 +406,7 @@
                             <a href="#" class="prise">$500</a>
                         </div>
                         <div class="place_info">
-                            <a href="destination_details.html"><h3>Palacio de Carondelet</h3></a>
+                            <a href="destination_details.php"><h3>Palacio de Carondelet</h3></a>
                             <p>Quito</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
@@ -432,7 +432,7 @@
                             <a href="#" class="prise">$500</a>
                         </div>
                         <div class="place_info">
-                            <a href="destination_details.html"><h3>La Chocolatera</h3></a>
+                            <a href="destination_details.php"><h3>La Chocolatera</h3></a>
                             <p>Salinas</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
@@ -458,7 +458,7 @@
                             <a href="#" class="prise">$500</a>
                         </div>
                         <div class="place_info">
-                            <a href="destination_details.html"><h3>Malecon 2000</h3></a>
+                            <a href="destination_details.php"><h3>Malecon 2000</h3></a>
                             <p>Guayaquil</p>
                             <div class="rating_days d-flex justify-content-between">
                                 <span class="d-flex justify-content-center align-items-center">
@@ -719,7 +719,7 @@
                             </h3>
                             <ul class="links">
                                 <li><a href="#">Precios</a></li>
-                                <li><a href="about.html">Informacion</a></li>
+                                <li><a href="about.php">Informacion</a></li>
                                 <li><a href="#">Galeria</a></li>
                                 <li><a href="">Contactanos</a></li>
                             </ul>

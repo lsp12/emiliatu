@@ -41,7 +41,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="img/log.jpg" alt="" style="width: 10rem;">
                                     </a>
                                 </div>
@@ -50,22 +50,22 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="index.html">home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a class="" href="travel_destination.html">Destination</a></l/li>
+                                            <li><a class="active" href="index.php">home</a></li>
+                                            <li><a href="about.php">About</a></li>
+                                            <li><a class="" href="travel_destination.php">Destination</a></l/li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                        <li><a href="destination_details.html">Destinations details</a></li>
-                                                        <li><a href="elements.html">elements</a></li>
+                                                        <li><a href="destination_details.php">Destinations details</a></li>
+                                                        <li><a href="elements.php">elements</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                    <li><a href="blog.php">blog</a></li>
+                                                    <li><a href="single-blog.php">single-blog</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.php">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -134,7 +134,7 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block" href="single-blog.php">
                                     <h2>Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
@@ -156,7 +156,7 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block" href="single-blog.php">
                                     <h2>Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
@@ -178,7 +178,7 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block" href="single-blog.php">
                                     <h2>Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block" href="single-blog.php">
                                     <h2>Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
@@ -222,7 +222,7 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                                <a class="d-inline-block" href="single-blog.php">
                                     <h2>Google inks pact for new 35-storey office</h2>
                                 </a>
                                 <p>That dominion stars lights dominion divide years for fourth have don't stars is that
@@ -322,7 +322,7 @@
                             <div class="media post_item">
                                 <img src="img/post/post_1.png" alt="post">
                                 <div class="media-body">
-                                    <a href="single-blog.html">
+                                    <a href="single-blog.php">
                                         <h3>From life was you fish...</h3>
                                     </a>
                                     <p>January 12, 2019</p>
@@ -331,7 +331,7 @@
                             <div class="media post_item">
                                 <img src="img/post/post_2.png" alt="post">
                                 <div class="media-body">
-                                    <a href="single-blog.html">
+                                    <a href="single-blog.php">
                                         <h3>The Amazing Hubble</h3>
                                     </a>
                                     <p>02 Hours ago</p>
@@ -340,7 +340,7 @@
                             <div class="media post_item">
                                 <img src="img/post/post_3.png" alt="post">
                                 <div class="media-body">
-                                    <a href="single-blog.html">
+                                    <a href="single-blog.php">
                                         <h3>Astronomy Or Astrology</h3>
                                     </a>
                                     <p>03 Hours ago</p>
@@ -349,7 +349,7 @@
                             <div class="media post_item">
                                 <img src="img/post/post_4.png" alt="post">
                                 <div class="media-body">
-                                    <a href="single-blog.html">
+                                    <a href="single-blog.php">
                                         <h3>Asteroids telescope</h3>
                                     </a>
                                     <p>01 Hours ago</p>

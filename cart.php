@@ -48,7 +48,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="index.php">
                                     <img src="img/log.jpg" alt="" style="width: 10rem;">
                                 </a>
                             </div>
@@ -57,22 +57,22 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">Inicio</a></li>
-                                        <li><a href="about.html">informacion</a></li>
-                                        <li><a class="" href="travel_destination.html">Destinos</a></l/li>
+                                        <li><a class="active" href="index.php">Inicio</a></li>
+                                        <li><a href="about.php">informacion</a></li>
+                                        <li><a class="" href="travel_destination.php">Destinos</a></l/li>
                                         <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                    <li><a href="destination_details.html">Destino detalles</a></li>
-                                                    <li><a href="elements.html">Elementos</a></li>
+                                                    <li><a href="destination_details.php">Destino detalles</a></li>
+                                                    <li><a href="elements.php">Elementos</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
+                                                <li><a href="blog.php">blog</a></li>
+                                                <li><a href="single-blog.php">single-blog</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contactanos</a></li>
+                                        <li><a href="contact.php">Contactanos</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -88,7 +88,7 @@
                                         <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
                                         <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
                                         <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                                        <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
+                                        <li><a href="cart.php"><span class="flaticon-shopping-cart"></span></a> </li>
                                     </ul>
                                 </div>
                             </div>
@@ -320,7 +320,7 @@
                         </h3>
                         <ul class="links">
                             <li><a href="#">Precios</a></li>
-                            <li><a href="about.html">Informacion</a></li>
+                            <li><a href="about.php">Informacion</a></li>
                             <li><a href="#">Galeria</a></li>
                             <li><a href="">Contactanos</a></li>
                         </ul>
