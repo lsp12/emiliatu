@@ -1,3 +1,6 @@
+<?php
+require_once('../modelo/general.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>"   >
 					<span class="login100-form-title p-b-34">
 						Registrarse
 					</span>
@@ -41,7 +44,7 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs1-wrap-input200 validate-input m-b-20" data-validate="Type user name">
-						<input id="first-name" class="input100" type="email" name="username" placeholder="Correo electronico">
+						<input id="first-name" class="input100" type="email" name="useremail" placeholder="Correo electronico">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input200 validate-input m-b-20" data-validate="Type password">
@@ -53,19 +56,13 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" name="enviar">
 							Continuar
 						</button>
 					</div>
 
 					<div class="w-full text-center p-t-27 p-b-239">
-						<!-- <span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2">
-							User name / password?
-						</a> -->
+						
 					</div>
 
 					<div class="w-full text-center">
@@ -107,5 +104,21 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
+<?php
+	if (isset($_POST['enviar']) ){
+		$nombre = $_POST["username"];
+		$email = $_POST["useremail"];
+		$contraseña = $_POST["pass"];
+		$confirmacion=$_POST["pass1"];
+		if ($contraseña==$confirmacion) {
+			añadirUsuario($nombre, $email, $contraseña);
+		}else{
+			echo '<script>
+			alert ("Las contraseñas no coinciden");
+			</script>';
+		}
+		
+	}
+?>
 </body>
 </html>

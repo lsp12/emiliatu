@@ -1,3 +1,6 @@
+<?php
+require_once('../modelo/general.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
 					<span class="login100-form-title p-b-34">
 						CUENTA DE INGRESO
 					</span>
@@ -47,7 +50,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" name="enviar">
 							Iniciar Sesion
 						</button>
 					</div>
@@ -102,4 +105,11 @@
 	<script src="js/main.js"></script>
 
 </body>
+<?php
+	if (isset($_POST['enviar']) ){
+		$email = $_POST["username"];
+		$contraseña = $_POST["pass"];		
+		//confirmar( $email, $contraseña);
+	}
+?>
 </html>
