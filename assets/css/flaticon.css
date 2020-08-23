@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 19/04/2020 06:48
+  	Creation date: 19/12/2019 08:27
   	*/
 
 @font-face {
@@ -28,8 +28,4 @@
 font-style: normal;
 }
 
-.flaticon-search:before { content: "\f100"; }
-.flaticon-shopping-cart:before { content: "\f101"; }
-.flaticon-user:before { content: "\f102"; }
-.flaticon-heart:before { content: "\f103"; }
-.flaticon-arrow:before { content: "\f104"; }
+.flaticon-quote:before { content: "\f100"; }
