@@ -1,10 +1,22 @@
 <?php
-require_once('../modelo/general.php');
+	require_once('../modelo/general.php');
+
+	if(isset($_POST['enviar'])){
+		$email = $_POST["username"];
+		$clave = $_POST["pass"];
+
+		$res = confirmar($email,$clave);
+		if($res!=null){
+			header('location: ../index.php');
+		}else{
+			echo '<script> alert ("El correo o contraseña incorrecta") </script>';		
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Login V17</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -35,7 +47,7 @@ require_once('../modelo/general.php');
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-34">
 						CUENTA DE INGRESO
 					</span>
@@ -104,21 +116,6 @@ require_once('../modelo/general.php');
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
-	<?php	
-		if(isset($_POST['enviar'])){
-			$email = $_POST["username"];
-			$clave = $_POST["pass"];
-
-			$res = confirmar($email,$clave);
-			var_dump($res);
-			if($res!=null){
-				header("location:../index.php");
-			}else{
-				echo '<script> alert ("El correo o contraseña incorrecta") </script>';		
-			}
-		}
-?>
 
 </body>
 
