@@ -50,10 +50,10 @@ require_once('../modelo/general.php');
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<!-- <button class="login100-form-btn" name="enviar">
+						<button class="login100-form-btn" name="enviar">
 							Iniciar Sesion
-						</button> -->
-						<input type="submit" value="Iniciar Sesion" name="enviar" class="login100-form-btn">
+						</button>
+						
 					</div>
 
 					<div class="w-full text-center p-t-27 p-b-239">
@@ -110,7 +110,7 @@ require_once('../modelo/general.php');
 			$email = $_POST["username"];
 			$clave = $_POST["pass"];
 			echo "".$email." ".$clave;
-			echo "<script>window.locationf='registro.php';</script>";
+			
 			confirmar($email,$clave);
 			
 		}

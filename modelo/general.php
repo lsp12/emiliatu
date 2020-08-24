@@ -28,16 +28,13 @@ function confirmar($correo, $pasword){
 			//$con=connectDatabase();
 			$consulta="SELECT email, pasword FROM usuario where email='$correo' and pasword='$pasword'";
 			$resultado=mysqli_query($con,$consulta);
-			$filas=mysqli_num_rows($resultado);
-			if ($filas>0) {
-                //header('location: registro.php');
-                echo "<script>window.locationf='registro.php';</script>";
-                $correo=null;
-			    $pasword=null;
-			}else{
-            echo"<script>alert('hola');</script>";
-            echo "<script>window.locationf='registro.php';</script>";
-            //header("location: registro.php");
-			}			
+            $filas=mysqli_num_rows($resultado);
+            if($filas>0){
+                print_r("hola");
+                header("location: ../index.php");
+            }else{
+                print_r("hola2");
+            }
+			//return recorrer($consulta);		
 		
 } 
