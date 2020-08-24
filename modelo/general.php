@@ -23,20 +23,21 @@ function añadirUsuario($nombre, $email, $contraseña){
     $con->query("INSERT INTO `usuario` VALUES (NULL, '$nombre', '$email', '$contraseña')");
     $con=null;
 }
-function confirmar($correo, $pasword){
-    global $con;
-    $query = $con->query("SELECT * FROM usuario");
-    foreach ($query as $lista) {
-        if($lista['email']==$correo && $lista['pasword']==$pasword){
-            header('Location: ../index.php');
-        }else{
-            echo '<script>
-			alert ("ingreso mal contraseña o email");
-			</script>';
-        }
-    }
-    /* if($query == false){
-        return [];
-    }
-    return recorrer($query); */
-}
+function confirmar($correo, $pasword){	
+			global $con;
+			//$con=connectDatabase();
+			$consulta="SELECT email, pasword FROM usuario where email='$correo' and pasword='$pasword'";
+			$resultado=mysqli_query($con,$consulta);
+			$filas=mysqli_num_rows($resultado);
+			if ($filas>0) {
+                //header('location: registro.php');
+                echo "<script>window.locationf='registro.php';</script>";
+                $correo=null;
+			    $pasword=null;
+			}else{
+            echo"<script>alert('hola');</script>";
+            echo "<script>window.locationf='registro.php';</script>";
+            //header("location: registro.php");
+			}			
+		
+} 
