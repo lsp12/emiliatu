@@ -25,6 +25,15 @@ $con = connectDatabase();
     function confirmar($correo, $pasword){	
         global $con;
         $consulta = $con->query("SELECT email, clave FROM usuario where email='$correo' and clave='$pasword'");
-        return recorrer($consulta);
+        return recorrer($consulta);  
+        /* if($verificacion!=null){
+            header("location:../index.php");
+        } */
     } 
 
+    function norepet($correo){
+        global $con;
+        $consol=$con->query("SELECT email FROM usuario WHERE email='$correo'");
+        $array=recorrer($consol);
+        return $array;
+    }

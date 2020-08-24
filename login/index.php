@@ -112,6 +112,11 @@ require_once('../modelo/general.php');
 
 			$res = confirmar($email,$clave);
 			var_dump($res);
+			if($res!=null){
+				header("location:../index.php");
+			}else{
+				echo '<script> alert ("El correo o contraseña incorrecta") </script>';		
+			}
 		}
 ?>
 

@@ -108,22 +108,29 @@
 	if (isset($_POST['enviar']) ){
 		$datos_registro = [ $_POST["username"], $_POST["useremail"], $_POST["pass"], $_POST["pass1"] ];
 		$estado = true;
+		$cond=norepet($datos_registro[1]);
+		if($cond==null){
 
-		for($i=0; $i < count($datos_registro); $i++){
-			if($datos_registro[$i] == null || $datos_registro[$i] == ''){
-				$estado = false;
+			for($i=0; $i < count($datos_registro); $i++){
+				if($datos_registro[$i] == null || $datos_registro[$i] == ''){
+					$estado = false;
+				}
 			}
+	
+			if($estado){
+				if ($datos_registro[2] != $datos_registro[3]) {
+					echo '<script> alert ("las contraseñas no son iguales") </script>';
+				}else{
+					añadirUsuario($datos_registro);
+				}
+			}else {
+				echo '<script> alert ("Se encontraron campos vacios") </script>';
+			}
+		}else{
+			echo '<script> alert ("El correo ya existe") </script>';
 		}
 
-		if($estado){
-			if ($datos_registro[2] != $datos_registro[3]) {
-				echo '<script> alert ("las contraseñas no son iguales") </script>';
-			}else{
-				añadirUsuario($datos_registro);
-			}
-		}else {
-			echo '<script> alert ("Se encontraron campos vacios") </script>';
-		}
+		
 		
 	}
 ?>
