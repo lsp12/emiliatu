@@ -109,10 +109,9 @@ require_once('../modelo/general.php');
 		if(isset($_POST['enviar'])){
 			$email = $_POST["username"];
 			$clave = $_POST["pass"];
-			echo "".$email." ".$clave;
-			
-			confirmar($email,$clave);
-			
+
+			$res = confirmar($email,$clave);
+			var_dump($res);
 		}
 ?>
 

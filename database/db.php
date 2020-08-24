@@ -3,7 +3,7 @@
         $host='localhost';
         $user='root';
         $pass='';
-        $db='emiliatur-sa';
+        $db='emiliatur_sa';
         $mysqli = new mysqli($host,$user,$pass,$db);
         if($mysqli->connect_errno){
             $result = "Fallo al conectar a MySQL: " . $mysqli->connect_error;
