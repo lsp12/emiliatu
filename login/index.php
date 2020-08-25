@@ -4,12 +4,25 @@
 	if(isset($_POST['enviar'])){
 		$email = $_POST["username"];
 		$clave = $_POST["pass"];
-
-		$res = confirmar($email,$clave);
-		if($res!=null){
-			header('location: ../index.php');
+		
+		if($email==null and $clave==null){
+			$res = confirmar($email);
+		if($res!=null){	
+			var_dump($res);
+			$confi= $res[0]['clave'];
+			
+			if(password_verify($clave,$res[0]['clave'])){
+				session_start();
+				$_SESSION['nombre']=$res[0]['username'];
+				header('location: ../index.php');
+			}else{
+				echo '<script> alert ("contraseña incorrecta") </script>';	
+			}		
 		}else{
-			echo '<script> alert ("El correo o contraseña incorrecta") </script>';		
+			echo '<script> alert ("El correo incorrecto") </script>';		
+		}
+		}else{
+			echo '<script> alert ("El correo incorrecto") </script>';
 		}
 	}
 ?>

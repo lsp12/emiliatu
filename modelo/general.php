@@ -20,15 +20,14 @@ $con = connectDatabase();
 
     function añadirUsuario($datos_registro){
         global $con;
-        $con->query("INSERT INTO usuario (nombre, email, clave) VALUES ('$datos_registro[0]', '$datos_registro[1]', '$datos_registro[2]')");
+        $clave=password_hash($datos_registro[2], PASSWORD_DEFAULT);
+        $con->query("INSERT INTO usuario (username, email, clave) VALUES ('$datos_registro[0]', '$datos_registro[1]', '$clave')");
     }
-    function confirmar($correo, $pasword){	
+    function confirmar($correo){	
         global $con;
-        $consulta = $con->query("SELECT email, clave FROM usuario where email='$correo' and clave='$pasword'");
-        return recorrer($consulta);  
-        /* if($verificacion!=null){
-            header("location:../index.php");
-        } */
+        //password_verify($pasword);
+        $consulta = $con->query("SELECT * FROM usuario where email='$correo'");
+        return recorrer($consulta);
     } 
 
     function norepet($correo){
@@ -37,3 +36,8 @@ $con = connectDatabase();
         $array=recorrer($consol);
         return $array;
     }
+    /* function username(){
+        global $con;
+        $consulta = $con->query("SELECT email, clave FROM usuario where email='$correo' and clave='$pasword'");
+        return recorrer($consulta);
+    } */

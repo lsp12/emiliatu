@@ -48,11 +48,11 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input200 validate-input m-b-20" data-validate="Type password">
-						<input class="input100" type="password" name="pass" placeholder="contraseña">
+						<input class="input100" type="password" name="pass" placeholder="contraseña" minlength="7">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input200 validate-input m-b-20" data-validate="Type password">
-						<input class="input100" type="password" name="pass1" placeholder="confirmar contraseña">
+						<input class="input100" type="password" name="pass1" placeholder="confirmar contraseña" minlength="7">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="container-login100-form-btn">
@@ -109,7 +109,7 @@
 		$datos_registro = [ $_POST["username"], $_POST["useremail"], $_POST["pass"], $_POST["pass1"] ];
 		$estado = true;
 		$cond=norepet($datos_registro[1]);
-		if($cond==null){
+		
 
 			for($i=0; $i < count($datos_registro); $i++){
 				if($datos_registro[$i] == null || $datos_registro[$i] == ''){
@@ -121,14 +121,18 @@
 				if ($datos_registro[2] != $datos_registro[3]) {
 					echo '<script> alert ("las contraseñas no son iguales") </script>';
 				}else{
-					añadirUsuario($datos_registro);
+					if($cond==null){
+						añadirUsuario($datos_registro);
+						echo '<script> alert ("agregado correctamente") </script>';
+					}else{
+						echo '<script> alert ("El correo ya est registrado") </script>';		
+					}
+					
 				}
 			}else {
 				echo '<script> alert ("Se encontraron campos vacios") </script>';
 			}
-		}else{
-			echo '<script> alert ("El correo ya existe") </script>';
-		}
+		
 
 		
 		
