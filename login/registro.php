@@ -1,5 +1,5 @@
 <?php
-	require_once('../modelo/general.php');
+	require_once('../modelo/login.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">

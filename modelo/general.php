@@ -1,6 +1,6 @@
 <?php
 
-require_once('../database/db.php');
+require_once('database/db.php');
 
 $con = connectDatabase();
 
@@ -17,27 +17,4 @@ $con = connectDatabase();
         $query = $con->query("SELECT * FROM $tabla ORDER BY $name_id_tabla DESC");
         return recorrer($query);
     }
-
-    function añadirUsuario($datos_registro){
-        global $con;
-        $clave=password_hash($datos_registro[2], PASSWORD_DEFAULT);
-        $con->query("INSERT INTO usuario (username, email, clave) VALUES ('$datos_registro[0]', '$datos_registro[1]', '$clave')");
-    }
-    function confirmar($correo){	
-        global $con;
-        //password_verify($pasword);
-        $consulta = $con->query("SELECT * FROM usuario where email='$correo'");
-        return recorrer($consulta);
-    } 
-
-    function norepet($correo){
-        global $con;
-        $consol=$con->query("SELECT email FROM usuario WHERE email='$correo'");
-        $array=recorrer($consol);
-        return $array;
-    }
-    /* function username(){
-        global $con;
-        $consulta = $con->query("SELECT email, clave FROM usuario where email='$correo' and clave='$pasword'");
-        return recorrer($consulta);
-    } */
+?>
