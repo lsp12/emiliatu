@@ -11,7 +11,7 @@
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
                                     <a href="index.php">
-                                        <img src="img/log.jpg" alt="" style="width: 10rem;">
+                                        <img src="assets/img/log.jpg" alt="" style="width: 10rem;">
                                     </a>
                                 </div>
                             </div>
@@ -20,7 +20,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a class="active" href="index.php">Inicio</a></li>
-                                            <li><a href="about.php">informacion</a></li>
+                                            <li><a href="destinos.php">informacion</a></li>
                                             <li><a class="" href="travel_destination.php">Destinos</a></l/li>
                                             <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
