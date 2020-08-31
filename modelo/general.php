@@ -17,4 +17,9 @@ $con = connectDatabase();
         $query = $con->query("SELECT * FROM $tabla ORDER BY $name_id_tabla DESC");
         return recorrer($query);
     }
+    function mostrarDestino(){
+        global $con;
+        $qery=$con->query("SELECT * FROM destino ORDER BY RAND() ");
+        return recorrer($qery);
+    }
 ?>
