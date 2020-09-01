@@ -19,16 +19,16 @@
                     
                     echo '
                     <div class="col-lg-4 col-md-6">
-                                <div class="single_destination">
-                                    <div class="thumb">
-                                        <img src="assets/img/destination/'.$fli["imagen"].'" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <p class="d-flex align-items-center">'.$fli["nombre"].' <a href="travel_destination.php">  02 lugares turisticos</a> </p>
-                                        
-                                    </div>
-                                </div>
+                        <div class="single_destination">
+                            <div class="thumb">
+                                <img src="assets/img/destination/'.$fli["imagen"].'" alt="">
                             </div>
+                            <div class="content">
+                                <p class="d-flex align-items-center">'.$fli["nombre"].' <a href="travel_destination.php">Comprar</a> <a href="#">Anadir al Carrito</a> </p>
+                                
+                            </div>
+                        </div>
+                    </div>
                     ';
                 }
             ?>
