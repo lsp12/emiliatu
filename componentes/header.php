@@ -50,7 +50,7 @@
                                             <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
                                             <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
                                             <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                                            <li><a href="cart.php"><span class="flaticon-shopping-cart"></span></a> </li>
+                                            <li><a href="cart.php"><img src="assets/img/svg_icon/4.svg" style="height: 1.2rem;"></a> </li>
                                         </ul>
                                     </div>
                                 </div>
