@@ -24,12 +24,12 @@
                                 <img src="assets/img/destination/'.$fli["imagen"].'" alt="">
                             </div>
                             <div class="content">
-                                <p class="d-flex align-items-center">'.$fli["nombre"].' <a href="travel_destination.php">Comprar</a> <a href="#">Anadir al Carrito</a> </p>
-                                
+                                <p class="d-flex align-items-center">'.$fli["nombre"].' <a href="travel_destination.php">Comprar</a> 
+                                <a href="Rdestino.php?id='.$fli["id_destino"].'" >Anadir al Carrito</a> </p>
                             </div>
                         </div>
                     </div>
-                    ';
+                    ';     
                 }
             ?>
             </div>

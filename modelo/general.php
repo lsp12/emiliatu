@@ -22,4 +22,10 @@ $con = connectDatabase();
         $qery=$con->query("SELECT * FROM destino ORDER BY RAND() ");
         return recorrer($qery);
     }
+
+    function botonComprar($id_desti){
+        global $con;
+        $query=$con->query("INSERT INTO carrito (`id_compra`, `destino`) VALUES (NULL, '$id_desti')");
+    }
+
 ?>

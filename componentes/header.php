@@ -1,8 +1,12 @@
 <?php
     require("modelo/general.php");
+    if($_SESSION=null){
+        header("location: login/index.php");
+    }
 ?>
 
 <header>
+
         <div class="header-area ">
             <div id="sticky-header" class="main-header-area">
                 <div class="container-fluid">
@@ -63,10 +67,13 @@
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
+                            <?php $dn=$_SESSION['user_id']; 
+                            echo $dn?>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+        
     </header>
