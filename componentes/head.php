@@ -1,10 +1,18 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+        
+    }else{
+      header("location: login/index.php");
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo $title; ?></title>
+    <title><?php echo $title ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

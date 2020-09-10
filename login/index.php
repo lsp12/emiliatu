@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once('../modelo/login.php');
 
 	if(isset($_POST['enviar'])){
@@ -11,7 +12,7 @@
 				// al general el password hast retonar una cadena mayor a 50
 				// el campo clave solo acepta 50 caracteres, modificala para que soporte 100.
 				if(password_verify($clave, $res[0]['clave']) > 0){
-					session_start();
+				
 					$_SESSION['user_id']=$res[0]['id_user'];
 					header('location: ../index.php');
 				}else{

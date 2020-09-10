@@ -27,5 +27,16 @@ $con = connectDatabase();
         global $con;
         $query=$con->query("INSERT INTO carrito (`id_compra`, `destino`) VALUES (NULL, '$id_desti')");
     }
+    
+    function CarritoEle(){
+        global $con;
+        $query=$con->query("SELECT nombre, descripcion, destino.imagen, id_destino FROM destino INNER JOIN carrito ON carrito.destino = destino.id_destino");
+        return recorrer($query);
+    }
+    
+    function EliminarCarrito($id){
+        global $con;
+        $query=$con->query("DELETE FROM carrito WHERE carrito.destino = $id");
+    }
 
 ?>

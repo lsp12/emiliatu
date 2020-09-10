@@ -1,8 +1,7 @@
 <?php
+    ob_start();
     require("modelo/general.php");
-    if($_SESSION=null){
-        header("location: login/index.php");
-    }
+    /* header("location: login/index.php"); */
 ?>
 
 <header>
@@ -24,21 +23,31 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a class="active" href="index.php">Inicio</a></li>
-                                            <li><a href="destinos.php">informacion</a></li>
-                                            <li><a class="" href="travel_destination.php">Destinos</a></l/li>
+                                            <li><a href="destinos.php">Destinos</a></li>
+                                            <li><a class="" href="travel_destination.php">Comprar</a></l/li>
                                             <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                         <li><a href="destination_details.php">Destino detalles</a></li>
                                                         <li><a href="elements.php">Elementos</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.php">blog</a></li>
-                                                    <li><a href="single-blog.php">single-blog</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.php">Contactanos</a></li>
+                                            <?php
+                                             if(!isset($_SESSION['user_id'])){
+                                                
+                                                
+                                            ?>
+                                            
+                                            <li><a href="login/index.php">Iniciar Sesion</a></li>
+                                            <?php }else{ ?>
+                                            <li><a href="cerrar.php">Cerrar sesion</a></li>
+                                            
+                                            <?php
+
+                                            }
+                                            ?>
+                                            
+                                            <!-- <li><a href="login/index.php">Cerrar sesion</a></li> -->
+                                            <!-- <li><a href="contact.php">Contactanos</a></li> -->
                                         </ul>
                                     </nav>
                                 </div>
@@ -50,11 +59,15 @@
                                     </div>
                                     <div class="social_links d-none d-xl-block">
                                         <ul>
-                                            <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                                            <li><a href="cart.php"><img src="assets/img/svg_icon/4.svg" style="height: 1.2rem;"></a> </li>
+                                            <?php $contador=CarritoEle();
+                                            $aux=0;
+                                            foreach ($contador as $lis) {
+                                                $aux++;
+                                            }
+                                            ?>
+                                            
+                                            <li><a href="cart.php"><img src="assets/img/svg_icon/4.svg" style="height: 1.2rem;"><span class="badge badge-light"><?php echo $aux ?> </span></a> </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -67,8 +80,7 @@
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
-                            <?php $dn=$_SESSION['user_id']; 
-                            echo $dn?>
+                            
                         </div>
                     </div>
 
