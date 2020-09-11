@@ -19,261 +19,86 @@
     <!--/ bradcam_area  -->
 
     <!-- where_togo_area_start  -->
-    <div class="where_togo_area">
+    
+
+
+    <section class="cart_area section_padding">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3">
-                    <div class="form_area">
-                        <h3>¿Donde quieras ir?</h3>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="search_wrap">
-                        <form class="search_form" action="#">
-                            <div class="input_field">
-                                <input type="text" placeholder="Where to go?">
-                            </div>
-                            <div class="input_field">
-                                <input id="datepicker" placeholder="Date">
-                            </div>
-                            <div class="input_field">
-                                <select>
-                                    <option data-display="Tipo de viaje">Tipo de viaje</option>
-                                    <option value="1">Primera opcion</option>
-                                    <option value="2">Segunda opcion</option>
-                                </select>
-                            </div>
-                            <div class="search_btn">
-                                <button class="boxed-btn4 " type="submit" >Buscar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+          <div class="cart_inner">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Personas</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    $lista=CarritoEle();
+                    foreach ($lista as $li) {
+                      echo '
+                      
+                      <tr>
+                    <td>
+                      <div class="media">
+                        <div class="d-flex thumb">
+                          <img src="assets/img/destination/'.$li["imagen"].'" style="height: 10rem;" alt="" />
+                        </div>
+                        
+                      </div>
+                    </td>
+                    <td>
+                    
+                      <h5>'.$li["nombre"].'</h5>
+                    </td>
+                    <td>
+                      <div class="product_count">
+                      
+                        <input type="number" class="input-number" id="calcular" name="quantity" value="1" min="1" max="20" onchange="myFunction()">
+                    
+                      
+                      </div>
+                    </td>
+                    
+                    <td>
+                    
+                      <h5 name="precio" id="demo">$15</h5>
+                    
+                    </td>
+                    
+                      <td>
+                        <div class="d-flex flex-row">
+                          <button class="boxed-btn4 " type="submit">Comprar</button>
+                          
+                          <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
+                        </div>
+                      <td>
+                    </tr>
+                    
+                      ';
+                    }
+                    $id=$_SESSION['user_id'];
+                    if($id==null){
+ 
+                      header("location: login/index.php");
+                      }
+                    echo $id;
+                  ?>
+                  
+
+                  
+                  
+                  </tr>
+                </tbody>
+              </table>
+              
             </div>
-        </div>
-    </div>
-    <!-- where_togo_area_end  -->
-
-
-    <div class="popular_places_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="filter_result_wrap">
-                        <h3>Filtrar Resultado</h3>
-                        <div class="filter_bordered">
-                            <div class="filter_inner">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="single_select">
-                                            <select>
-                                                <option data-display="Country">Ciudades</option>
-                                                <option value="1">Quito</option>
-                                                <option value="2">Ambato</option>
-                                                <option value="4">Salinas</option>
-                                              </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="single_select">
-                                            <select>
-                                                <option data-display="Travel type">tipo de viaje</option>
-                                                <option value="1">Avanzado</option>
-                                                <option value="2">Gold</option>
-                                                <option value="4">Premium</option>
-                                              </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="range_slider_wrap">
-                                            <span class="range">Rango de precios</span>
-                                            <div id="slider-range"></div>
-                                            <p>
-                                                <input type="text" id="amount" readonly style="border:0; color:#7A838B; font-weight:400;">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="reset_btn">
-                                <button class="boxed-btn4" type="submit">Resetear</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="img/place/1.png" alt="">
-                                    <a href="#" class="prise">$500</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="destination_details.php"><h3>Ciudad Mitad del Mundo</h3></a>
-                                    <p>Quito</p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
-                                             <a href="#">(20 Review)</a>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="#">5 Days</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="img/place/2.png" alt="">
-                                    <a href="#" class="prise">$500</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="destination_details.php"><h3>Teleferico Quito</h3></a>
-                                    <p>Quito</p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
-                                             <a href="#">(20 Review)</a>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="#">5 Days</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="img/place/3.png" alt="">
-                                    <a href="#" class="prise">$500</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="destination_details.php"><h3>La Chocolatera</h3></a>
-                                    <p>Salinas</p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
-                                             <a href="#">(20 Review)</a>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="#">5 Days</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="img/place/4.png" alt="">
-                                    <a href="#" class="prise">$500</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="destination_details.php"><h3>Miami Beach</h3></a>
-                                    <p>United State of America</p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
-                                             <a href="#">(20 Review)</a>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="#">5 Days</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="img/place/5.png" alt="">
-                                    <a href="#" class="prise">$500</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="destination_details.php"><h3>Malecon 2000</h3></a>
-                                    <p>Guayaquil</p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
-                                             <a href="#">(20 Review)</a>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="#">5 Days</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="img/place/6.png" alt="">
-                                    <a href="#" class="prise">$500</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="destination_details.php"><h3>Lago de ibarra</h3></a>
-                                    <p>Ibarra</p>
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
-                                             <a href="#">(20 Review)</a>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="#">5 Days</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="more_place_btn text-center">
-                                <a class="boxed-btn4" href="#">More Places</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+          </div>
+    </section>
 
 
    <?php include_once('componentes/footer.php'); ?>

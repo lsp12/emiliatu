@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
+    <script type="http://code.jquery.com/jquery-1.5.1.min.js"></script>
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 

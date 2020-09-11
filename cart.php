@@ -24,6 +24,7 @@
           </div>
       </div>
       <!--================Cart Area =================-->
+      <?php $id=$_SESSION['user_id']; ?>
       <section class="cart_area section_padding">
         <div class="container">
           <div class="cart_inner">
@@ -43,41 +44,46 @@
                     $lista=CarritoEle();
                     foreach ($lista as $li) {
                       echo '
-                      <tr>
-                    <td>
-                      <div class="media">
-                        <div class="d-flex thumb">
-                          <img src="assets/img/destination/'.$li["imagen"].'" style="height: 10rem;" alt="" />
-                        </div>
-                        
-                      </div>
-                    </td>
-                    <td>
-                      <h5>'.$li["nombre"].'</h5>
-                    </td>
-                    <td>
-                      <div class="product_count">
                       
-                        <input type="number" class="input-number" id="calcular" name="quantity" value="1" min="1" max="20">
-                    
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <div class="d-flex thumb">
+                                <img src="assets/img/destination/'.$li["imagen"].'" style="height: 10rem;" alt="" />
+                              </div>
+                              
+                            </div>
+                          </td>
+                          <td>
+                          
+                            <h5>'.$li["nombre"].'</h5>
+                          </td>
+                          <td>
+                            <div class="product_count">
+                            
+                              <input type="number" class="input-number" id="calcular" name="quantity" value="1" min="1" max="20" onchange="myFunction()">
+                          
+                            
+                            </div>
+                          </td>
+                          <td class="my-fake-form>
+                          
+                            <h5 name="precio" class="demo" id="posting-value-1">$15</h5>
+                          
+                          </td>
+                          
+                            <td>
+                              <div class="d-flex flex-row">
+                                
+                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["id_destino"].'" class="p-2 boxed-btn4" id="submit-form-link">Comprar</a>
+                                <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
+                              </div>
+                            <td>
+                        </tr>
                       
-                      </div>
-                    </td>
-                    <td>
-                      <h5 class="cl">$720.00</h5>
-                    </td>
-                    
-                      <td>
-                        <div class="d-flex flex-row">
-                          <button class="boxed-btn4 " type="submit">Comprar</button>
-                          <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
-                        </div>
-                      <td>
-                    </tr>
-                    
                       ';
                     }
-                    $id=$_SESSION['user_id'];
+                    
                     if($id==null){
  
                       header("location: login/index.php");
@@ -85,7 +91,7 @@
                     echo $id;
                   ?>
                   
-
+                        
                   
                   <tr class="bottom_button">
                     <td>
@@ -166,192 +172,17 @@
           </div>
       </section>
       <!--================End Cart Area =================-->
-  </main>>
-  <footer class="footer">
-    <div class="footer_top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4 ">
-                    <div class="footer_widget">
-                        <div class="footer_logo">
-                            <!-- <a href="#">
-                                <img src="img/footer_logo.png" alt="">
-                            </a> -->
-                        </div>
-                        <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                            <a href="#">+10 367 826 2567</a> <br>
-                            <a href="#">contact@carpenter.com</a>
-                        </p>
-                        <div class="socail_links">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-twitter-alt"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-youtube-play"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-6 col-lg-2">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Company
-                        </h3>
-                        <ul class="links">
-                            <li><a href="#">Precios</a></li>
-                            <li><a href="about.php">Informacion</a></li>
-                            <li><a href="#">Galeria</a></li>
-                            <li><a href="">Contactanos</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Destinos Populares
-                        </h3>
-                        <ul class="links double_links">
-                            <li><a href="#">Quito</a></li>
-                            <li><a href="#">Ambato</a></li>
-                            <li><a href="#">Cuenca</a></li>
-                            <li><a href="#">Salinas</a></li>
-                            <li><a href="#">Guayaquil</a></li>
-                            <li><a href="#">Ibarra</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 col-lg-3">
-                    <div class="footer_widget">
-                        <h3 class="footer_title">
-                            Instagram
-                        </h3>
-                        <div class="instagram_feed">
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/1.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/2.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/3.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/4.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/5.png" alt="">
-                                </a>
-                            </div>
-                            <div class="single_insta">
-                                <a href="#">
-                                    <img src="img/instagram/6.png" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copy-right_text">
-        <div class="container">
-            <div class="footer_border"></div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <p class="copy_right text-center">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-  <!--? Search model Begin -->
-  <div class="search-model-box">
-      <div class="h-100 d-flex align-items-center justify-content-center">
-          <div class="search-close-btn">+</div>
-          <form class="search-model-form">
-              <input type="text" id="search-input" placeholder="Searching key.....">
-          </form>
-      </div>
-  </div>
-  <!-- Search model end -->
-
-  <!-- JS here -->
-
-  <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-  <!-- Jquery, Popper, Bootstrap -->
-  <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-  <script src="./assets/js/popper.min.js"></script>
-  <script src="./assets/js/bootstrap.min.js"></script>
-  <!-- Jquery Mobile Menu -->
-  <script src="./assets/js/jquery.slicknav.min.js"></script>
-
-  <!-- Jquery Slick , Owl-Carousel Plugins -->
-  <script src="./assets/js/owl.carousel.min.js"></script>
-  <script src="./assets/js/slick.min.js"></script>
-
-  <!-- One Page, Animated-HeadLin -->
-  <script src="./assets/js/wow.min.js"></script>
-  <script src="./assets/js/animated.headline.js"></script>
+  </main>
+  <?php include_once('componentes/footer.php');?>
   
-  <!-- Scrollup, nice-select, sticky -->
-  <script src="./assets/js/jquery.scrollUp.min.js"></script>
-  <script src="./assets/js/jquery.nice-select.min.js"></script>
-  <script src="./assets/js/jquery.sticky.js"></script>
-  <script src="./assets/js/jquery.magnific-popup.js"></script>
-
-  <!-- contact js -->
-  <script src="./assets/js/contact.js"></script>
-  <script src="./assets/js/jquery.form.js"></script>
-  <script src="./assets/js/jquery.validate.min.js"></script>
-  <script src="./assets/js/mail-script.js"></script>
-  <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-  
-  <!-- Jquery Plugins, main Jquery -->	
-  <script src="./assets/js/plugins.js"></script>
-  <script src="./assets/js/main.js"></script>
   <script>
-    $(document).ready(function(){
-      $("#enviar").click(function(){
-        $.post("prueba.php", function(datos){
+    
+    function myFunction() {
+    let x = document.getElementById("calcular").value;
+    x= x*15;
+    document.querySelector("#demo").innerHTML = "$"+x;
+}
 
-        }) 
-      });
-    });
   </script>
 </body>
 </html>

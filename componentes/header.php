@@ -24,7 +24,7 @@
                                         <ul id="navigation">
                                             <li><a class="active" href="index.php">Inicio</a></li>
                                             <li><a href="destinos.php">Destinos</a></li>
-                                            <li><a class="" href="travel_destination.php">Comprar</a></l/li>
+                                            
                                             <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                         <li><a href="destination_details.php">Destino detalles</a></li>
@@ -45,7 +45,7 @@
 
                                             }
                                             ?>
-                                            
+                                            <li><a class="" href="travel_destination.php">Compras Realizadas</a></li>
                                             <!-- <li><a href="login/index.php">Cerrar sesion</a></li> -->
                                             <!-- <li><a href="contact.php">Contactanos</a></li> -->
                                         </ul>
