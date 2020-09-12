@@ -59,11 +59,17 @@
                                     </div>
                                     <div class="social_links d-none d-xl-block">
                                         <ul>
-                                            <?php $contador=CarritoEle();
+                                            <?php 
                                             $aux=0;
-                                            foreach ($contador as $lis) {
+                                            if(isset($_SESSION['user_id'])){
+                                                $id_as=$_SESSION['user_id'];
+                                                $contador=CarritoEle($id_as);
+                                                
+                                                foreach ($contador as $lis) {
                                                 $aux++;
+                                                }
                                             }
+                                            
                                             ?>
                                             
                                             <li><a href="cart.php"><img src="assets/img/svg_icon/4.svg" style="height: 1.2rem;"><span class="badge badge-light"><?php echo $aux ?> </span></a> </li>

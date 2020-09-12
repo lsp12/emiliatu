@@ -1,7 +1,9 @@
 <?php
 	session_start();
 	require_once('../modelo/login.php');
-
+	if(isset($_SESSION['user_id'])){
+		header("location: ../index.php");
+	}
 	if(isset($_POST['enviar'])){
 		$email = $_POST["username"];
 		$clave = $_POST["pass"];

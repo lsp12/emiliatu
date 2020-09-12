@@ -23,13 +23,27 @@
                             <div class="thumb">
                                 <img src="assets/img/destination/'.$fli["imagen"].'" alt="">
                             </div>
-                            <div class="content">
+                            <div class="content">';
+                            if(isset($_SESSION['user_id'])){
+                                $id=$_SESSION['user_id'];
+                                echo '
                                 <p class="d-flex align-items-center">'.$fli["nombre"].'
-                                <a href="Rdestino.php?id='.$fli["id_destino"].'" >Anadir al Carrito</a> </p>
+                                <a href="Rdestino.php?id='.$fli["id_destino"].'&id_usu='.$id.'" >Anadir al Carrito</a></p>
+                            </div>
+                        </div>
+                    </div>
+                                ';
+                            }else{
+                                echo '
+                                <p class="d-flex align-items-center">'.$fli["nombre"].'
+                                <a href="cart.php" >Anadir al Carrito</a></p>
                             </div>
                         </div>
                     </div>
                     ';     
+                           
+                            }
+                                
                 }
             ?>
             </div>

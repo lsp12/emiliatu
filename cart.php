@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $lista=CarritoEle();
+                    $lista=CarritoEle($id);
                     foreach ($lista as $li) {
                       echo '
                       
