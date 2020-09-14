@@ -27,7 +27,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Login</title>
+	<title>Inicio de sesion</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	

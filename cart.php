@@ -24,7 +24,14 @@
           </div>
       </div>
       <!--================Cart Area =================-->
-      <?php $id=$_SESSION['user_id']; ?>
+      <?php $id=$_SESSION['user_id']; 
+      
+      if($id==null){
+ 
+        header("location: login/index.php");
+        }
+      echo $id;
+      ?>
       <section class="cart_area section_padding">
         <div class="container">
           <div class="cart_inner">
@@ -84,11 +91,6 @@
                       ';
                     }
                     
-                    if($id==null){
- 
-                      header("location: login/index.php");
-                      }
-                    echo $id;
                   ?>
                   
                         
