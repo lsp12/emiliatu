@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 require_once('../database/db.php');
 
 $con = connectDatabase();
@@ -22,6 +22,7 @@ $con = connectDatabase();
         global $con;
         $clave=password_hash($datos_registro[2], PASSWORD_DEFAULT);
         $con->query("INSERT INTO usuario (username, email, clave) VALUES ('$datos_registro[0]', '$datos_registro[1]', '$clave')");
+        header("location: index.php");
     }
     function confirmar($correo){	
         global $con;
@@ -36,3 +37,5 @@ $con = connectDatabase();
         $array=recorrer($consol);
         return $array;
     }
+
+    ob_end_flush();?>

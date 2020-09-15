@@ -1,4 +1,5 @@
 <?php
+	ob_start();
 	require_once('../modelo/login.php');
 	session_start();
 	if(isset($_SESSION['user_id'])){
@@ -127,7 +128,7 @@
 				}else{
 					if($cond==null){
 						añadirUsuario($datos_registro);
-						echo '<script> alert ("agregado correctamente") </script>';
+						
 					}else{
 						echo '<script> alert ("El correo ya est registrado") </script>';		
 					}
@@ -144,3 +145,6 @@
 ?>
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

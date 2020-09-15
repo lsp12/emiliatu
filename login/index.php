@@ -7,16 +7,20 @@
 	if(isset($_POST['enviar'])){
 		$email = $_POST["username"];
 		$clave = $_POST["pass"];
-
 		if($email != '' || $clave != ''){
 			$res = confirmar($email);
 			if($res != []){
 				// al general el password hast retonar una cadena mayor a 50
 				// el campo clave solo acepta 50 caracteres, modificala para que soporte 100.
 				if(password_verify($clave, $res[0]['clave']) > 0){
-				
-					$_SESSION['user_id']=$res[0]['id_user'];
-					header('location: ../index.php');
+					if ("admin@gmail.com"==$email) {
+						$_SESSION['user_id']=$res[0]['id_user'];
+						header('location: ../admin/admin-1.php');
+					}else{
+						$_SESSION['user_id']=$res[0]['id_user'];
+						header('location: ../index.php');
+					}
+					
 				}else{
 					echo '<script> alert ("Datos incorrectos, revise y vuelva ha intentarlo") </script>';	
 				}		
