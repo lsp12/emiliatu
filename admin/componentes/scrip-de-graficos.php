@@ -1,5 +1,5 @@
 <script>
-        let ctx = document.getElementById('confirmados2');
+/*         let ctx = document.getElementById('confirmados2');
         var myChart = new Chart(ctx, {
         
         type: 'line',
@@ -49,7 +49,7 @@
                 }]
             }
         }
-    })
+    }) */
 
     let pro=document.querySelector("#provincia");
     contagiados = new Chart(pro, {

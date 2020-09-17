@@ -85,7 +85,7 @@ try {
                     include_once("componentes/scrip-de-graficos.php");
         ?>
     <?php
-        if (isset($_POST['enviar']) ){
+       /*  if (isset($_POST['enviar']) ){
             $id = $_POST["options"];
             $tipo = $_POST["options2"];
             $valo = $_POST["valor"];
@@ -96,7 +96,7 @@ try {
             $editar->execute();
 
             
-        }
+        } */
     ?>
     
 </body>
