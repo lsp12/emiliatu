@@ -1,4 +1,4 @@
-<div class="tab-pane fade mb-5 p-4" style="background-color: white;" id="v-pills-profile-2" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+<div class="tab-pane fade mb-5 p-4" style="background-color: white;" id="v-pills-profile-3" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h2>Horario semanal</h2>
                     <form method="POST"  action="admin-1.php">
                         <div class="form-group row mb-4">
@@ -7,7 +7,7 @@
                           <select class="form-control" id="cantones" name="id_destino">
                             <option value="">Seleciona</option>
                             <?php
-                            $destino=mostrarDestino();
+                            
                             
                             
                             foreach ($destino as $fila) {
@@ -21,7 +21,7 @@
                           </div>
 
                           <div class="col-6">
-                          <label for="exampleFormControlSelect2">Conductor</label>
+                          <label for="exampleFormControlSelect2">Horario</label>
                           <select class="form-control" id="cantones" name="conductor">
                             <option value="">Seleciona</option>
                             <?php
@@ -30,7 +30,7 @@
                             foreach ($conductores as $fila) {
                                 
                                 echo "
-                                <option value='".$fila['cedula'] ."'>".$fila['nombre_emp']."</option>
+                                <option value='".$fila['nombre'] ."'>".$fila['nombre']."</option>
                                 ";
                             }
                         ?>
@@ -88,7 +88,3 @@
                       
                       ?>
                     </div>
-                      
-                  </div>
-                </div>
-              </div>

@@ -1,9 +1,6 @@
 <?php
     require_once('../modelo/admin.php');
-try {
-    $conexion = new PDO("mysql:host=localhost;dbname=covid19;", "root", "");
-    $mostrar=$conexion->prepare('SELECT * FROM paises');
-    $mostrar->execute();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -46,6 +43,7 @@ try {
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Vista general</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">actualizar datos</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-2" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actualizar horario</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-3" role="tab" aria-controls="v-pills-profile" aria-selected="false">Asignaro conductor</a>
                     
                   </div>
                 </div>
@@ -53,7 +51,8 @@ try {
                   <div class="tab-content" id="v-pills-tabContent">
                     <?php
                         include_once("componentes/Seccion-tabla-y-buscador.php");
-                        include_once("componentes/Seccion-de-formulario-boleto.php");
+                        /* include_once("componentes/Seccion-de-formulario-boleto.php"); */
+                        /* include_once("componentes/seccion_conductor.php"); */
                         include_once("componentes/Section-de-actualiozar-horario.php");
                         include_once("componentes/graficos.php");
                     ?>              
@@ -70,18 +69,7 @@ try {
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
    
-    <?php
-                    $mostrar=$conexion->prepare('SELECT * FROM paises');
-                    $mostrar->execute();
-                    $fallecidos=0;
-                    $recuperados=0;
-                    $contagios=0;
-                    foreach($mostrar as $fila){
-                    $fallecidos+=$fila['Muertos'];
-                    $recuperados+=$fila['Recuperados'];
-                    $contagios+=$fila['Contagiados'];
-                    
-                    }
+    <?php 
                     include_once("componentes/scrip-de-graficos.php");
         ?>
     <?php
@@ -101,9 +89,6 @@ try {
     
 </body>
 <?php
-} catch (\Throwable $th) {
-    
-    echo "Error: " . $e->getMessage();
-}
+
 ?>
 </html>
