@@ -1,5 +1,6 @@
 <?php
 $destino=$_POST['destino'];
+$fecha=$_POST['fecha'];
 
 $title = 'Busqueda';
     include_once('componentes/head.php');
@@ -21,10 +22,16 @@ $title = 'Busqueda';
             <div class="row">
             <?php
                 require_once("modelo/general.php");
-                $fila=BusquedaD($destino);
+                
+                $fila=BusquedaD($destino,$fecha);
+                
+                if($fila==null){
+                    echo "<h2>No hay resultados de la busqueda</h2>";
+                }
+
                 
                 foreach ($fila as $fli) {
-                    
+                        
                     echo '
                     <div class="col-lg-4 col-md-6">
                         <div class="single_destination">
@@ -36,6 +43,7 @@ $title = 'Busqueda';
                                 $id=$_SESSION['user_id'];
                                 echo '
                                 <p class="d-flex align-items-center">'.$fli["nombre"].'
+                                <a href="Rdestino.php?id='.$fli["id_destino"].'&id_usu='.$id.'" >infromacion</a>
                                 <a href="Rdestino.php?id='.$fli["id_destino"].'&id_usu='.$id.'" >Anadir al Carrito</a></p>
                             </div>
                         </div>
@@ -44,14 +52,16 @@ $title = 'Busqueda';
                             }else{
                                 echo '
                                 <p class="d-flex align-items-center">'.$fli["nombre"].'
+                                <a href="destination_details.php?id='.$fli["id_destino"].'">infromacion</a>
                                 <a href="cart.php" >Anadir al Carrito</a></p>
                             </div>
                         </div>
                     </div>
                     ';     
                            
-                            }                
+                            }        
                 }
+    
             ?>
             </div>
         </div>

@@ -6,6 +6,7 @@ $fecha=$_GET['fecha'];
 $hora=$_GET['hora'];
 
 $query=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id");
+$query1=$con->query("DELETE FROM `rutas` WHERE `rutas`.`id_destino` = $id");
 
 header("location: admin-1.php");
 ?>

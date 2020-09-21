@@ -27,7 +27,11 @@ $con = connectDatabase();
         global $con;
         $query=$con->query("INSERT INTO `carrito` (`id_compra`, `destino`, `id_usuario`) VALUES (NULL, $id_desti, $id_usu);");
     }
-    
+    function buscarDestino($id){
+        global $con;
+        $query=$con->query("SELECT * FROM `destino` WHERE destino.id_destino = $id");
+        return recorrer($query);
+    }
     function CarritoEle($id_usu){
         global $con;
         $query=$con->query("SELECT
@@ -50,9 +54,22 @@ $con = connectDatabase();
         $query=$con->query("DELETE FROM carrito WHERE carrito.destino = $id");
     }
 
-    function BusquedaD($busq){
+    function BusquedaD($busq,$fecha1){
         global $con;
-        $query=$con->query("SELECT * FROM destino WHERE destino.nombre = '$busq'");
+        $query=null;
+        $newDate = date("yy-m-d", strtotime($fecha1));
+        if($busq==null){
+            $busq="null";
+            $query=$con->query("SELECT * FROM `destino` WHERE destino.fecha_1 LIKE '%$newDate%' OR destino.fecha_2 LIKE '%$newDate%' OR destino.fecha_3 LIKE '%$newDate%'");
+        }elseif($newDate==null){
+            $newDate="null";
+            $query=$con->query("SELECT * FROM `destino` WHERE destino.nombre LIKE '%$busq%'");
+        }elseif($newDate==null && $busq==null){
+            echo "Ingrese algun parametro";
+            
+        }else{
+            $query=$con->query("SELECT * FROM `destino` WHERE destino.nombre LIKE '%$busq%' AND (fecha_1 LIKE '%$newDate%' OR fecha_2 LIKE '%$newDate%' OR fecha_3 LIKE '%$newDate%')");
+        }
         return recorrer($query);
     }
 

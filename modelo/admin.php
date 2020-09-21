@@ -15,6 +15,7 @@
         return recorrer($query);
     }
     function buscarRutas($id_des,$ced,$fecha,$id_bus){
+        echo "$id_des+$ced+$fecha+$id_bus";
         global $con;
         $query = $con->query("SELECT
         destino.nombre,
@@ -27,7 +28,7 @@
     INNER JOIN buses ON buses.matricula = rutas.id_buses
     INNER JOIN destino ON destino.id_destino = rutas.id_destino
     WHERE
-        buses.matricula = '$id_bus' AND destino.id_destino = $id_des AND empleado.cedula = $ced AND(
+        buses.matricula = '$id_bus' AND empleado.cedula = $ced AND(
             destino.fecha_1 = '$fecha' OR destino.fecha_2 = '$fecha' OR destino.fecha_3 = '$fecha'
         )");
         return recorrer($query);
@@ -77,7 +78,8 @@
         global $con;
         $query=$con->query("INSERT INTO rutas (id_emple, id_destino, id_buses, fecha) VALUES ('1207564565', '4', 'hps-453', '2020-09-17')");
     }
-    function actualizarDestino($id_des,$fecha,$hora, $ced,$id_bus){
+    function actualizarDestino($id_des,$fecha2,$hora, $ced,$id_bus){
+        $fecha = date("yy-m-d", strtotime($fecha2));
         global $con;
         $fecha1=consulta("destino",$id_des);
         $url='admin-1.php';
@@ -85,17 +87,27 @@
         if($fecha1[0]['fecha_1']=="0000-00-00"){
             $query=$con->query("UPDATE destino SET fecha_1 = '$fecha', hora_1 = '$hora' WHERE destino.id_destino = $id_des");
             $ruta=buscarRutas($id_des,$ced,$fecha,$id_bus);
-            if($ruta[0]['fecha']!=$fecha){
-                if($ruta[0]['matricula']!=$id_bus){
+            $fecha4=$ruta[0]['fecha'];
+            echo var_dump($ruta);
+            echo $fecha==$fecha4;
+            $bus=$ruta[0]['matricula'];
+            if($fecha4!=$fecha){
+                if($bus==$id_bus){
+                    
                 $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
-                
                 echo '<meta http-equiv=refresh content="1; '.$url.'">';
                 die;
                 }else{
-                    $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
+                    echo '<script> alert ("El buz ya esta ciendo utilizado ese dia elimine el conductor para usarlo")</script>';
+                    $query3=$con->query("UPDATE destino SET fecha_1 = '0000-00-00', hora_1 = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                    /* echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                die; */
                 }
             }else{
-                $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                echo '<script> alert ("ya estan ocupadas la elimine la  conductor fecha que reemplazara ")</script>';
+                $query3=$con->query("UPDATE destino SET fecha_1 = '0000-00-00', hora_1 = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                die;
             }
             
         }elseif ($fecha1[0]['fecha_2']=="0000-00-00") {
@@ -106,17 +118,19 @@
             }else{
                 $query=$con->query("UPDATE destino SET fecha_2 = '$fecha', hora_2 = '$hora' WHERE destino.id_destino = $id_des");
                 $ruta=buscarRutas($id_des,$ced,$fecha,$id_bus);
-                if($ruta[0]['fecha']!=$fecha){
-                    if($ruta[0]['matricula']!=$id_bus){
-                        $query2=$con->query("INSERT INTO rutas (ID, id_emple, id_destino, id_buses, fecha) VALUES (NULL ,$ced, $id_des, '$id_bus', '$fecha')");
-                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
-                    die;
-                    }else{
-                        $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
-                    }
+                $fecha4=$ruta[0]['fecha'];
+            $bus=$ruta[0]['matricula'];
+            if($fecha4!="$fecha"){
+                if($bus!=$id_bus){
+                $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
+                echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                die;
                 }else{
-                    $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                    $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
                 }
+            }else{
+                $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
+            }
             }
             
             
@@ -127,17 +141,19 @@
             }else{
                 $query=$con->query("UPDATE destino SET fecha_3 = '$fecha', hora_3 = '$hora' WHERE destino.id_destino = $id_des");
                 $ruta=buscarRutas($id_des,$ced,$fecha,$id_bus);
-                if($ruta[0]['fecha']!=$fecha){
-                    if($ruta[0]['matricula']!=$id_bus){
-                    $query2=$con->query("INSERT INTO rutas (ID, id_emple, id_destino, id_buses, fecha) VALUES (NULL ,$ced, $id_des, '$id_bus', '$fecha')");
-                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
-                    die;
-                    }else{
-                        $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
-                    }
+                $fecha4=$ruta[0]['fecha'];
+            $bus=$ruta[0]['matricula'];
+            if($fecha4!="$fecha"){
+                if($bus!=$id_bus){
+                $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
+                echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                die;
                 }else{
-                    $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
-                }  
+                    $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
+                }
+            }else{
+                $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
+            }  
             }
             
             

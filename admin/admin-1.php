@@ -72,21 +72,6 @@
     <?php 
                     include_once("componentes/scrip-de-graficos.php");
         ?>
-    <?php
-       /*  if (isset($_POST['enviar']) ){
-            $id = $_POST["options"];
-            $tipo = $_POST["options2"];
-            $valo = $_POST["valor"];
-            echo $id;
-            echo $tipo;
-            echo $valo;
-            $editar=$conexion->prepare("UPDATE `paises` SET `$tipo` = '$valo' WHERE `ID` = $id");
-            $editar->execute();
-
-            
-        } */
-    ?>
-    
 </body>
 <?php
 

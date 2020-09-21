@@ -14,19 +14,20 @@
                                 <input type="text" placeholder="¿Dónde ir?" name="destino">
                             </div>
                             <div class="input_field">
-                                <input id="datepicker" placeholder="Fecha">
+                                <input id="datepicker" placeholder="fecha" name="fecha">
                             </div>
-                            <div class="input_field">
+                            <!-- <div class="input_field">
                                 <select class='form-control'>
                                     <option data-display="Tipo de viaje">Tipo de viaje</option>
                                     <option value="1">Primera opcion</option>
                                     <option value="2">Segunda opcion</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="search_btn">
                                 <button class="boxed-btn4 " type="submit" >Buscar</button>
                             </div>
                         </form>
+                       
                     </div>
                 </div>
             </div>
