@@ -56,14 +56,15 @@ $con = connectDatabase();
 
     function BusquedaD($busq,$fecha1){
         global $con;
-        $query=null;
+        /* $query=null; */
         $newDate = date("yy-m-d", strtotime($fecha1));
-        if($busq==null){
-            $busq="null";
-            $query=$con->query("SELECT * FROM `destino` WHERE destino.fecha_1 LIKE '%$newDate%' OR destino.fecha_2 LIKE '%$newDate%' OR destino.fecha_3 LIKE '%$newDate%'");
-        }elseif($newDate==null){
-            $newDate="null";
+        
+        if($newDate=="7070-01-01"){
+            
             $query=$con->query("SELECT * FROM `destino` WHERE destino.nombre LIKE '%$busq%'");
+        }elseif($busq==null){
+            $query=$con->query("SELECT * FROM `destino` WHERE destino.fecha_1 LIKE '%$newDate%' OR destino.fecha_2 LIKE '%$newDate%' OR destino.fecha_3 LIKE '%$newDate%'");
+            
         }elseif($newDate==null && $busq==null){
             echo "Ingrese algun parametro";
             

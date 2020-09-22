@@ -14,7 +14,7 @@
                                 <input type="text" placeholder="¿Dónde ir?" name="destino">
                             </div>
                             <div class="input_field">
-                                <input id="datepicker" placeholder="fecha" name="fecha">
+                                <input id="datepicker"  placeholder="fecha" name="fecha" >
                             </div>
                             <!-- <div class="input_field">
                                 <select class='form-control'>
