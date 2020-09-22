@@ -28,7 +28,11 @@
     INNER JOIN buses ON buses.matricula = rutas.id_buses
     INNER JOIN destino ON destino.id_destino = rutas.id_destino
     WHERE
-        buses.matricula = '$id_bus' AND empleado.cedula = $ced AND(
+        (
+            (
+                buses.matricula = '$id_bus' OR empleado.cedula = $ced
+            ) AND destino.id_destino = $id_des
+        ) AND(
             destino.fecha_1 = '$fecha' OR destino.fecha_2 = '$fecha' OR destino.fecha_3 = '$fecha'
         )");
         return recorrer($query);
@@ -88,23 +92,23 @@
             $query=$con->query("UPDATE destino SET fecha_1 = '$fecha', hora_1 = '$hora' WHERE destino.id_destino = $id_des");
             $ruta=buscarRutas($id_des,$ced,$fecha,$id_bus);
             $fecha4=$ruta[0]['fecha'];
-            echo var_dump($ruta);
-            echo $fecha==$fecha4;
+            
             $bus=$ruta[0]['matricula'];
             if($fecha4!=$fecha){
-                if($bus==$id_bus){
+                if($bus!=$id_bus){
                     
                 $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
                 echo '<meta http-equiv=refresh content="1; '.$url.'">';
                 die;
+                
                 }else{
-                    echo '<script> alert ("El buz ya esta ciendo utilizado ese dia elimine el conductor para usarlo")</script>';
+                    echo '<script> alert ("El buz ya esta ciendo utilizado ese dia elimine el conductor con el vehiculo para usarlo")</script>';
                     $query3=$con->query("UPDATE destino SET fecha_1 = '0000-00-00', hora_1 = '0' WHERE `destino`.`id_destino` = $id_des"); 
-                    /* echo '<meta http-equiv=refresh content="1; '.$url.'">';
-                die; */
+                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                    die;
                 }
             }else{
-                echo '<script> alert ("ya estan ocupadas la elimine la  conductor fecha que reemplazara ")</script>';
+                echo '<script> alert ("ya estan ocupadas la elimine la  conductor para reemplazar")</script>';
                 $query3=$con->query("UPDATE destino SET fecha_1 = '0000-00-00', hora_1 = '0' WHERE `destino`.`id_destino` = $id_des"); 
                 echo '<meta http-equiv=refresh content="1; '.$url.'">';
                 die;
@@ -116,21 +120,32 @@
                 
                 
             }else{
+
                 $query=$con->query("UPDATE destino SET fecha_2 = '$fecha', hora_2 = '$hora' WHERE destino.id_destino = $id_des");
                 $ruta=buscarRutas($id_des,$ced,$fecha,$id_bus);
                 $fecha4=$ruta[0]['fecha'];
-            $bus=$ruta[0]['matricula'];
-            if($fecha4!="$fecha"){
+                
+                $bus=$ruta[0]['matricula'];
+            if($fecha4!=$fecha){
                 if($bus!=$id_bus){
-                $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
-                echo '<meta http-equiv=refresh content="1; '.$url.'">';
-                die;
+
+                    $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
+                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                    die;
+                    
+                    }else{
+                        echo '<script> alert ("El buz ya esta ciendo utilizado ese dia elimine el conductor con el vehiculo para usarlo")</script>';
+                        echo var_dump($ruta);
+                        $query3=$con->query("UPDATE destino SET fecha_2 = '0000-00-00', hora_2 = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                        echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                        die;
+                    }
                 }else{
-                    $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
+                    echo '<script> alert ("ya estan ocupadas la elimine la  conductor para reemplazar")</script>';
+                    $query3=$con->query("UPDATE destino SET fecha_2 = '0000-00-00', hora_2 = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                    die;
                 }
-            }else{
-                $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
-            }
             }
             
             
@@ -142,18 +157,28 @@
                 $query=$con->query("UPDATE destino SET fecha_3 = '$fecha', hora_3 = '$hora' WHERE destino.id_destino = $id_des");
                 $ruta=buscarRutas($id_des,$ced,$fecha,$id_bus);
                 $fecha4=$ruta[0]['fecha'];
-            $bus=$ruta[0]['matricula'];
-            if($fecha4!="$fecha"){
+                
+                $bus=$ruta[0]['matricula'];
+            if($fecha4!=$fecha){
                 if($bus!=$id_bus){
-                $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
-                echo '<meta http-equiv=refresh content="1; '.$url.'">';
-                die;
+
+                    $query3=$con->query("INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES (NULL, $ced, $id_des, '$id_bus', '$fecha')");
+                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                    die;
+                    
+                    }else{
+                        echo '<script> alert ("El buz ya esta ciendo utilizado ese dia elimine el conductor con el vehiculo para usarlo")</script>';
+                        echo var_dump($ruta);
+                        $query3=$con->query("UPDATE destino SET fecha_3 = '0000-00-00', hora_3 = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                        echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                        die;
+                    }
                 }else{
-                    $query3=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des");     
+                    echo '<script> alert ("ya estan ocupadas la elimine la  conductor para reemplazar")</script>';
+                    $query3=$con->query("UPDATE destino SET fecha_3 = '0000-00-00', hora_3 = '0' WHERE `destino`.`id_destino` = $id_des"); 
+                    echo '<meta http-equiv=refresh content="1; '.$url.'">';
+                    die;
                 }
-            }else{
-                $query2=$con->query("UPDATE destino SET $fecha = '0000-00-00', $hora = '0' WHERE `destino`.`id_destino` = $id_des"); 
-            }  
             }
             
             
@@ -161,6 +186,7 @@
             echo '<script> alert ("ya estan ocupadas las tres fechas si quiere insertar una nueva elimine la fecha que reemplazara ")</script>';
         }
         $fecha=null;
+        $bus=null;
         
         /* $aux=false;
         for ($i=1; $i <3 ; $i++) { 
