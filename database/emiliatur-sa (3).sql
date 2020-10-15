@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2020 a las 08:11:44
+-- Tiempo de generación: 15-10-2020 a las 06:22:48
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -102,7 +102,7 @@ INSERT INTO `carrito` (`id_compra`, `destino`, `id_usuario`) VALUES
 CREATE TABLE `destino` (
   `id_destino` int(11) NOT NULL,
   `nombre` varchar(11) COLLATE utf32_spanish_ci NOT NULL,
-  `descripcion` varchar(50) COLLATE utf32_spanish_ci NOT NULL,
+  `descripcion` varchar(1800) COLLATE utf32_spanish_ci NOT NULL,
   `fecha_1` date NOT NULL,
   `fecha_2` date NOT NULL,
   `fecha_3` date NOT NULL,
@@ -117,24 +117,24 @@ CREATE TABLE `destino` (
 --
 
 INSERT INTO `destino` (`id_destino`, `nombre`, `descripcion`, `fecha_1`, `fecha_2`, `fecha_3`, `hora_1`, `hora_2`, `hora_3`, `imagen`) VALUES
-(1, 'Guallaquil', 'ciudad', '2020-09-19', '0000-00-00', '0000-00-00', '02:25', '0', '0', 'guayaquil.jpg'),
-(2, 'Quito', 'capital carondelet', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'quito.jpg'),
-(3, 'Ibarra', 'lago', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'ibarra.jpg'),
-(4, 'Ambato', 'montañas', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'ambato.jpg'),
-(5, 'Salinas', 'playas', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'salinas.jpg'),
-(6, 'Manta', 'Ciudad de Manta', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'manta.jpg'),
-(7, 'Machala', 'ciudad de machala', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'machala.jpg'),
-(8, 'Napo', 'ciudad de la amazonia de napo', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'napo.jpg'),
-(9, 'Loja', 'ciudad de loja', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'loja.jpg'),
-(10, 'Tena', 'Ciudad de Tena', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'tena.jpg'),
-(11, 'Guaranda', 'ciudad de Guaranda', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'guaranda.jpg'),
-(12, 'La libertad', 'ciudad de La libertad', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'libertad.jpg'),
-(13, 'Sanborondon', 'Ciudad de Samborondon', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'samborondon.jpg'),
-(14, 'Baños de Ag', 'Ciudad de baños de agua santa', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'va.png'),
-(15, 'Agua Santa', 'Ciudad de Agua Santa', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'aguaSanta.jpg'),
-(16, 'Montañita', 'Ciudad de Montañita', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'montanita.jpg'),
-(17, 'Rio bamba', 'Ciudad de Rio Bamba', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'riobmba.jpg'),
-(18, 'Cuenca', 'la ciudad de Cuenca', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'cuenca.jpg');
+(1, 'Guallaquil', 'Guayaquil es la ciudad más grande de Ecuador y ocupa un lugar primordial en la economía nacional. Gran parte de este avance económico se debe a su ubicación geográfica, pues se encuentra en la convergencia de dos grandes ríos: el Daule y el Babahoyo, a sólo 70 km del océano Pacífico. Luego de años de negligencia burocrática, finalmente la ciudad ha tomado su desarrollo en sus propias manos. Energizada por su recién descubierto interés en el turismo y su eterno compromiso con el desarrollo de la pequeña empresa y de los emprendedores comerciales, Guayaquil está plenamente consciente del potencial con que históricamente ha contado. No es posible decir, a estas alturas, que el renacimiento de Guayaquil sea un hecho consumado, pero sí que los signos de su avance están por todo lado. La prueba ', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'guayaquil.jpg'),
+(2, 'Quito', 'Quito es una de las ciudades más irresistibles de América Latina. Anidada en un largo y estrecho valle andino, con las laderas del volcán Pichincha flanqueando todo su costado occidental, la ciudad es privilegiada por su espectacular entorno natural. La ciudad capital de Ecuador, con su mezcla de arquitectura colonial y moderna, ofrece un ambiente fascinante a quienes la visitan. Además de ser el centro político de la nación, es también su capital cultural, pues cuenta con una impresionante selección de museos, festivales, y también de vida nocturna .\r\n\r\nPor su ubicación, convenientemente centrada, Quito es también el punto de partida ideal para explorar todo el Ecuador. En sus alrededores es posible realizar múltiples excursiones de un día. Las calles del sector de La Mariscal están atestadas de agencias de viaje, restaurantes y bares, donde muchos de los visitantes pasan gran parte de su tiempo.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'quito.jpg'),
+(3, 'Ibarra', 'Ibarra es la capital de la Provincia de Imbabura y la Región Norte (Ecuador). Por eso es el centro de desarrollo económico, educativo y científico de la zona. La ciudad se encuentra edificada a las faldas del volcán que lleva el mismo nombre de la provincia. Su clima veraniego y amabilidad de sus habitantes. Es muy visitada por los turistas nacionales y extranjeros como sitio de descanso, paisajistíco, cultural e histórico. Es una ciudad cultural en donde predomina el arte, la escritura, la pintura, el teatro y la historia; además existe una creciente oferta turística y hotelera ofrecida para toda la zona.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'ibarra.jpg'),
+(4, 'Ambato', 'Ambato es la capital de la Provincia de Tungurahua, situada a 2600 metros de altitud, está enclavada en una hondonada formada por seis mesetas: Píllaro, Quisapincha, Tisaleo, Quero, Huambalo y Cotaló. La ciudad es conocida como Jardín del Ecuador, Tierra de Flores y Frutas o también como la ciudad de los tres Juanes, por ser cuna de Juan León Mera, Juan Montalvo y Juan Benigno Vela. Ambato ha sido castigado por varios terremotos y reconstruida casi en su totalidad en el año 1949, donde da inicio la Fiesta de las Flores y las Frutas en honor a la lucha de sus habitantes y hoy por hoy es una de las fiestas más importantes del Ecuador, en la cual participan delegaciones de varios países.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'ambato.jpg'),
+(5, 'Salinas', 'Salinas es un importante centro turístico por sus hermosas y acogedoras playas, ofrece una gran diversidad de paisajes, deportes y diversión. Cuenta con hoteles de primera categoría, así como clubes, casinos, bares, discotecas y centros deportivos. Este es un lugar ideal para la práctica de deportes náuticos como: snorkel, velerismo, buceo, tabla vela, voleibol playero, jet sky, surf, pesca deportiva de profundidad, entre otras. Para la práctica de pesca de profundidad, Salinas es un lugar escogido para competiciones en el ámbito internacional debido a que en sus aguas abundan toda clase de codiciados peces como el picudo negro, azul, rayado, pez espada, tuna, dorado, entre otros. Desde aquí se han roto algunas marcas mundiales. Es considerada el balneario más importante, popular y visitado del Ecuador, por sus hermosas y acogedoras playas: Chipipe, San Lorenzo, Mar Bravo, La Chocolatera y piscinas de Ecuasal. Además, se puede apreciar la danza de las ballenas jorobadas que se acercan a tan solo 8 km de sus costas.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'salinas.jpg'),
+(6, 'Manta', 'Es el primer puerto turístico, marítimo y pesquero del Ecuador, donde cada año llegan decenas de cruceros. Tiene gran actividad de exportación e importación. Cuenta con un aeropuerto internacional. En las playas de Santa Marianita y San Mateo se practican deportes extremos. Su actividad nocturna es intensa. En su interior cuenta con montañas como Pacoche, San Lorenzo y el Aromo, situados en el centro del territorio cantonal, que ofrecen vegetación y fauna, por donde se hacen recorridos de excursión.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'manta.jpg'),
+(7, 'Machala', 'Machala, capital de la Provincia de El Oro, es un cantón agrícola productivo y con un gran movimiento comercial, constituyéndose en el polo económico del sur ecuatoriano. Sus pobladores se dedican a la actividad bananera, por ello es reconocida internacionalmente como “Capital Bananera del mundo”. La siembra y cosecha de camarón es otra de las actividades productivas. Su población se dedica en su mayoría a la actividad agrícola, industrial y portuaria, por ello es reconocida internacionalmente como “Capital Bananera del mundo”. La ciudad es el centro político, financiero y económico de la provincia, y uno de los principales del país, alberga grandes organismos culturales, financieros, administrativos y comerciales. Es conocida como la Capital Mundial del Banano, porque desde allí a través del Puerto Bolívar se exporta esta preciada fruta a todo el mundo.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'machala.jpg'),
+(8, 'Napo', 'Los cronistas españoles e historiadores identifican al menos dos grandes grupos humanos que habitaron la actual provincia de Napo, los Omaguas y los Quijos. En el caso de los primeros, parece ser que antes del encuentro con los españoles, los Omaguas ya habían tenido al menos un contacto con el Inca Huayna Cápac. Toribio de Ortigueira obtiene esta información a través de Isabel Guachi, quien estuvo en la expedición del Inca, dando la siguiente descripción: “eran de buena disposición, bien ajustados, vestidos de manta y camisas del algodón pintadas de pincel y de diferentes pinturas”. En el caso de los Quijos, era evidente que su contacto con los pueblos de la sierra interandina era muy fluido al igual que con los Incas.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'napo.jpg'),
+(9, 'Loja', 'Llamada desde siempre “Cuna del arte, las letras y la música” por el valioso aporte que ha dado al país y al mundo en esos ámbitos, pero además, “Jardín Botánico del Ecuador” por la rica diversidad de flora y fauna que posee. Loja, ubicada al sur-oriente de la provincia, es considerada un buen ejemplo para el Ecuador, pues en sus parques y calles el denominador común es el orden y el aseo. Es conocida como el Jardín Botánico del Ecuador por la rara, interesante y elevada biodiversidad.\r\n\r\nPor su desarrollo y ubicación geográfica fue nombrada sede administrativa de la región sur o zona 7 comprendida por las provincias de El Oro, Loja y Zamora Chinchipe. En Loja las actividades principales son la agricultura, ganadería, comercio, minería y pequeña industria. En el sector rural la ocupación campesina es combinada pues se dedican al cultivo de bienes agrícolas, la crianza de animales y obras artesanales.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'loja.jpg'),
+(10, 'Tena', 'La ciudad de Tena denominada por muchos historiadores como San Juan de los Dos Ríos de Tena, recibe su nombre porque la ciudad se encuentra bañada por los ríos Tena y Panao. Tena a pequeña ciudad ordenada y dividida en dos por el río. La tranquilidad y amabilidad de su gente se siente en sus estrechas calles. Está ubicada en la zona sur de la provincia sobre el valle del río Misahuallí a una altitud de 510 msnm., en la Región Amazónica del Ecuador. Posee un clima cálido-húmedo con temperatura promedio de 25 Grado Celsius y humedad del 90 al 100 %. Tena tiene 23.307 habitantes; la ciudad está dividida en decenas de barrios. Es el centro político de la provincia, alberga los principales organismos gubernamentales, culturales y comerciales.\r\n\r\nEl Cantón Tena cuenta con una diversidad de atractivos naturales y manifestaciones culturales que se ubican en cada una de las parroquias las mismas que poseen características especiales que permiten a los visitantes conocer su historia y tradiciones de las etnias Kichwa y Huaorani. Entre las actividades que se pueden realizar son: excursiones a la selva, deportes de riesgo: rafting, kayak, tubing, canyoning trekking; eventos culturales como: música kichwa, danza, shamanismo, visita a los petroglifos, observación de aves, comidas típicas entre otras. La ciudad es el centro político de la provincia, alberga los principales organismos gubernamentales, culturales y comerciales.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'tena.jpg'),
+(11, 'Guaranda', 'San Pedro de Guaranda es la capital de la Provincia de Bolívar, en la República del Ecuador, América del Sur. Está ubicada a 2.668 msnm., a solo 220 km. de Quito, la capital del país, y a 150 km. de Guayaquil, puerto principal.\r\n\r\nSe la conoce como «Ciudad de las Siete Colinas», por estar rodeada de siete colinas: San Jacinto, Loma de Guaranda, San Bartolo, Cruzloma, Tililag, Talalag y el Mirador.\r\n\r\nGuaranda es una ciudad pequeña, muy pintoresca, multicolor, enclavada en la Cordillera Occidental de los Andes. Con una vista espectacular del volcán Chimborazo. Cuenta con un clima muy agradable que oscila entre los 15 y 21 grados centígrados. Guaranda tiene una infraestructura única y llamativa, sus edificaciones llegan máximo a tres pisos, sus calles angostas son adoquinadas. Es una ciudad apacible, tranquila, sosegada, llena de calma, con gente muy amable y acogedora. Tiene el encanto de las ciudades idóneas para un buen descanso, en donde la cercanía y la camaradería es un plus que le da un encanto particular.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'guaranda.jpg'),
+(12, 'La libertad', 'El Cantón La Libertad se encuentra comunicado con los cantones Salinas y Santa Elena por una red vial de buen estado en épocas seca y lluviosa. Este cantón es de superficie arenosa no muy plana y accidentada en su cercanía por riscos poco propicia para bañistas en marea alta. Este hermoso cantón de la Provincia de Santa Elena, posee una interesante tradición en lo relacionado con su denominación. Su territorio está situado en un lugar de verdadero privilegio en la Bahía de Santa Elena, contiguo a un conjunto pintoresco formado por rocas y denominado geográficamente \"Caleta\" en el que en forma natural se ha formado un vistoso arco geométrico. Su formación data de tiempos prehistóricos.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'libertad.jpg'),
+(13, 'Sanborondon', 'Samborondón es una ciudad ecuatoriana; cabecera cantonal del Cantón Samborondón, así como la quinta urbe más grande y poblada de la Provincia de Guayas. Se localiza al centro-sur de la región litoral del Ecuador, en una extensa llanura, en la orilla derecha del río Babahoyo, a una altitud de 9 msnm y con un clima lluvioso tropical de 25°C en promedio.\r\n\r\nEs llamada \"La Capital ecuestre del Ecuador\" por su tradición caballista y la constante actividad equina. En el censo de 2010 tenía una población de 42.637 habitantes, lo que la convierte en la vigésima novena ciudad más poblada del país. Forma parte del área metropolitana de Guayaquil, pues su actividad económica, social y comercial está fuertemente ligada a Guayaquil, siendo \"ciudad dormitorio\" para miles de personas que se trasladan a Guayaquil por vía terrestre. El conglomerado alberga a 2.991.061 habitantes, y ocupa la primera posición entre las conurbaciones del Ecuador.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'samborondon.jpg'),
+(14, 'Baños de Ag', 'Baños de Agua Santa se encuentra en la Provincia de Tungurahua solamente a 180 Km de Quito y 35 Km de Ambato. La ciudad turística de está ubicado en un valle con cascadas y aguas termales a lado del volcán Tungurahua con una altura de 5.016 metros. Baños tiene una población con 20.000 habitantes, está a una altura de 1.826 metros y posee temperaturas promedios de 20°C. El Cantón les invita a descansar en sus piscinas de aguas termales y spas, aventura para toda la familia o deportes extremos como descenso de ríos, escaladas, descenso de cañones, tirolina (tirolesa o canopy), senderismo, ciclismo de montaña o salto de puente (bungee jumping). Fiestas y feriados principales: Carnaval en Febrero, Semana Santa, 24 de mayo (Batalla de Pichincha), 10 de agosto (Primer grito de independencia), Fiestas de la Virgen en Octubre, 2 de noviembre (Día de los fieles difuntos) y la fiesta de Cantonización en Diciembre.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'va.png'),
+(15, 'Otavalo', 'La verdadera belleza de Otavalo reside en su gente, los indígenas Otavaleños. El Mercado de Artesanías que hace famosa a esta ciudad es, sin dudas, uno de los más espectaculares de toda Sudamérica. Dos cosas fundamentales vuelven tan atractivo a este Mercado: su excepcional oferta y su relevancia cultural. Lo que lo vuelve fascinante es el modo en que el visitante puede vivir la cultura ecuatoriana y las tradiciones de la Sierra en un mercado donde las generaciones actuales interactúan del mismo modo que lo hacían en la época histórica en que fue creado.\r\n\r\nEl mejor día de la semana para visitar este rincón de los Andes es el sábado. Este día el mercado se expande por las calles de la ciudad desde su sitio original de la Plaza de los Ponchos. También es posible visitar el Mercado de Animales. Siga nuestro consejo: llegue el viernes en la tarde, relaciónese con la ciudad, váyase temprano a la cama y ponga su alarma para las 5:30 AM. Sacúdase la pereza del sueño y camine o tome un taxi hasta el Mercado de Animales.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'otavalo.jpg'),
+(16, 'Montañita', 'Montañita es una zona no delimitada de comuna de pescadores de la Parroquia Manglaralto, en las costas ecuatorianas y en el cantón Santa Elena de la provincia Santa Elena en el Ecuador y por donde pasa la carretera de la Ruta del Sol o \"Ruta del Spondylus\". Se encuentra a solamente 200 km de la ciudad de Guayaquil, frente a la costa del Océano Pacífico, en la costa occidental de América del Sur.\r\n\r\nMontañita toma su nombre por estar ubicada en una ensenada rodeada por cerros y vegetación al pie del mar, como un valle con una playa extensa, actualmente es un balneario turístico internacional visitado por jóvenes que practican el turismo de aventura y surfistas, sus olas derechas perfectas que llegan hasta los 2.5 m atraen a turistas de todo el mundo.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'montanita.jpg'),
+(17, 'Rio bamba', 'Es una ciudad de Ecuador, conocida también como: “Cuna de la Nacionalidad Ecuatoriana” , “Sultana de los Andes”, “Ciudad Bonita”, “Ciudad de las Primicias”, “Corazón de la Patria”, por su historia y belleza. Es la capital de la Provincia de Chimborazo. La Sultana de los Andes, llamada así porque está rodeada de majestuosos nevados que parecen formar una hermosa corona, fue en 1830, la ciudad en donde se realizó la Primera Asamblea Constituyente del Ecuador. Tal vez la última muestra de su coraje la dio su equipo, el Olmedo, que logró el Campeonato Nacional de Fútbol en el año 2000. Riobamba se levanta en la Llanura de Tapi, que se extiende inclinada desde las faldas del Chimborazo hasta las riberas de los ríos Chibunga, Guano y Chambo, donde cae abruptamente en cortes de 600 a800 metros.\r\n\r\nLa población de Riobamba se ha caracterizado por un constante flujo de migración a la que se ha sometido; que ha variado los índices de las diferentes etnias en la ciudad. Desde su fundación, la ciudad se compuso por descendientes de europeos e indígenas, poco a poco esa visión cambió y en la actualidad la mezcla se acentuó a tal grado que aunque aún se distingue en las calles personas blancas, mestizas e indígenas, es difícil definir con exactitud los porcentajes que contienen cada uno en la ciudad, a eso se suma la inmigración que tuvo la ciudad en la última década de ciudadanos chinos, cubanos y colombianos que generaron mayor mezcla de culturas.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'riobmba.jpg'),
+(18, 'Cuenca', 'Se podría decir que Cuenca es la más encantadora entre todas las ciudades de Ecuador. Con sus calles empedradas, sus catedrales antiguas, sus parques coloniales y los ríos que la atraviesan.\r\n\r\nEn los últimos años Cuenca se ha convertido en el destino favorito de extranjeros jubilados que se han asentado en esta ciudad por el resto de sus vidas. Segura, con un bajo costo de la vida, y agradable a pesar de su clima relativamente frío, esta pequeña ciudad andina atrae actualmente a gran cantidad de inmigrantes.\r\n\r\nLos cuencanos son famosos por ser muy tradicionales, pero también por su tradición cultural, que ha producido más escritores, poetas, artistas y filósofos notables que cualquier otra ciudad de Ecuador. La cultura cuencana, así como su historia están ampliamente representadas en los muchos museos que existen en la ciudad. Quienes busquen opciones culturales en Cuenca podrán escoger durante el día entre museos, iglesias y plazas coloniales.', '0000-00-00', '0000-00-00', '0000-00-00', '0', '0', '0', 'cuenca.jpg');
 
 -- --------------------------------------------------------
 
@@ -166,6 +166,18 @@ INSERT INTO `empleado` (`cedula`, `nombre_emp`, `apellido`, `edad`, `sexo`, `tel
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `fecha`
+--
+
+CREATE TABLE `fecha` (
+  `id` int(11) NOT NULL,
+  `id_destino` int(30) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `rutas`
 --
 
@@ -174,15 +186,19 @@ CREATE TABLE `rutas` (
   `id_emple` int(11) NOT NULL,
   `id_destino` int(11) NOT NULL,
   `id_buses` varchar(11) COLLATE utf32_spanish_ci NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `hora` varchar(15) COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `rutas`
 --
 
-INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`) VALUES
-(5, 12356543, 1, 'ESP-123', '2020-09-19');
+INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`, `hora`) VALUES
+(34, 245653535, 4, 'ESP-123', '2020-10-08', '2:25'),
+(40, 12356543, 1, 'hps-453', '2020-10-07', '23:36'),
+(41, 12356543, 2, 'ESP-123', '2020-10-06', '22:32'),
+(42, 12356543, 1, 'ESP-123', '2020-10-28', '03:42');
 
 -- --------------------------------------------------------
 
@@ -251,6 +267,13 @@ ALTER TABLE `empleado`
   ADD PRIMARY KEY (`cedula`);
 
 --
+-- Indices de la tabla `fecha`
+--
+ALTER TABLE `fecha`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_destino` (`id_destino`);
+
+--
 -- Indices de la tabla `rutas`
 --
 ALTER TABLE `rutas`
@@ -294,10 +317,16 @@ ALTER TABLE `destino`
   MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT de la tabla `fecha`
+--
+ALTER TABLE `fecha`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `rutas`
 --
 ALTER TABLE `rutas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -322,6 +351,12 @@ ALTER TABLE `boleto`
 ALTER TABLE `carrito`
   ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `r` FOREIGN KEY (`destino`) REFERENCES `destino` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `fecha`
+--
+ALTER TABLE `fecha`
+  ADD CONSTRAINT `fecha_ibfk_1` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `rutas`

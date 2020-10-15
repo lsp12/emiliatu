@@ -20,26 +20,24 @@
                     
                     
                      
-                        
+                        $horario=Horarios();
                             
-                        foreach ($destino as $fila) {
+                        foreach ($horario as $fila) {
                             
                           echo "
                           <tr>
-                          <th scope='row'>".$fila['id_destino']."</th>
+                          <th scope='row'>".$fila['ID']."</th>
                           <td>".$fila['nombre']."</td>
                           
                           
                           </td>
                           <td>
-                          <p>".$fila['fecha_1'] ." Hora de salida ".$fila['hora_1']."</p>
-                          <p>".$fila['fecha_2'] ." Hora de salida ".$fila['hora_2']."</p>
-                          <p>".$fila['fecha_3'] ." Hora de salida ".$fila['hora_3']."</p>
+                          <p>".$fila['fecha'] ." Hora de salida ".$fila['hora']."</p>
+                         
                           </td>
                           <td>
-                          <a href='borrar.php?id=".$fila['id_destino']."&fecha=fecha_1&hora=hora_1' class='btn btn-primary ml-5 mb-2'>Eliminar</a><br>
-                          <a href='borrar.php?id=".$fila['id_destino']."&fecha=fecha_2&hora=hora_2' class='btn btn-primary ml-5 mb-2'>Eliminar</a><br>
-                          <a href='borrar.php?id=".$fila['id_destino']."&fecha=fecha_3&hora=hora_3' class='btn btn-primary ml-5 mb-2'>Eliminar</a><br>
+                          <a href='borrar.php?id=".$fila['ID']."&fecha=fecha_1&hora=hora_1' class='btn btn-primary ml-5 mb-2'>Eliminar</a><br>
+                          
                           </td>
                           </tr>        
                           ";

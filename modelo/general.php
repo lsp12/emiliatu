@@ -74,4 +74,5 @@ $con = connectDatabase();
         return recorrer($query);
     }
 
+    
 ?>
