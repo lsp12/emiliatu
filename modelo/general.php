@@ -29,7 +29,16 @@ $con = connectDatabase();
     }
     function buscarDestino($id){
         global $con;
-        $query=$con->query("SELECT * FROM `destino` WHERE destino.id_destino = $id");
+        $query=$con->query("SELECT
+        destino.nombre,
+        destino.descripcion,
+        fecha,
+        destino.imagen
+    FROM
+        `rutas`
+    INNER JOIN destino ON destino.id_destino = rutas.id_destino
+    WHERE
+        rutas.id_destino = $id");
         return recorrer($query);
     }
     function CarritoEle($id_usu){

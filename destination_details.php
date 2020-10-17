@@ -21,9 +21,15 @@
                         <h3>Descripcion</h3>
                         <p><?php echo $destino[0]['descripcion']; ?></p>
                         <p></p>
-                        <p>Fecha de salida: <br><?php echo $destino[0]['fecha_1']; ?></p>
-                        <p>Fecha de salida: <br><?php echo $destino[0]['fecha_2']; ?></p>
-                        <p>Fecha de salida: <br><?php echo $destino[0]['fecha_3']; ?></p>
+                        <p>Fecha de salida: <br>
+                        <?php
+                         
+                        foreach ($destino as $li) {
+                          echo $li['fecha']."<br>";
+                        }
+                       
+                        ?>
+                        
                         
                         <div class="single_destination">
                             

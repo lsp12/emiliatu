@@ -50,7 +50,7 @@
             </div>
           <div class="row">
             <div class="col-6" style="width: 70%; margin-left: auto;margin-right: auto;">
-                <h2 class="text-center">Casos confirmados por Cantones</h2>
+                <h2 class="text-center">Conductores</h2>
                 <!-- <canvas id="provincia" ></canvas> -->
                 <table class="table table-striped table-dark rounded-lg" id="tabla">
                         <thead>
