@@ -41,6 +41,11 @@ $con = connectDatabase();
         rutas.id_destino = $id");
         return recorrer($query);
     }
+    function Descripcion($id){
+        global $con;
+        $query=$con->query("SELECT * FROM `destino` WHERE id_destino = $id");
+        return recorrer($query);
+    }
     function CarritoEle($id_usu){
         global $con;
         $query=$con->query("SELECT

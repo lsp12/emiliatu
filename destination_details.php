@@ -4,11 +4,12 @@
     include_once('componentes/header.php');
     $id_des=$_GET['id'];
     $destino=buscarDestino($id_des);
+    $descri=Descripcion($id_des);
 ?>
     <!-- header-end -->
     <div class="destination_banner_wrap overlay">
         <div class="destination_text text-center">
-            <h3><?php echo $destino[0]['nombre']; ?></h3>
+            <h3><?php echo $descri[0]['nombre']; ?></h3>
             
         </div>
     </div>
@@ -19,7 +20,7 @@
                 <div class="col-lg-8 col-md-9">
                     <div class="destination_info">
                         <h3>Descripcion</h3>
-                        <p><?php echo $destino[0]['descripcion']; ?></p>
+                        <p><?php echo $descri[0]['descripcion']; var_dump($descri)?></p>
                         <p></p>
                         <p>Fecha de salida: <br>
                         <?php
@@ -33,11 +34,11 @@
                         
                         <div class="single_destination">
                             
-                            <p><img src="assets/img/destination/<?php echo $destino[0]['imagen']; ?>" alt="" style="max-height: 20rem;"></p>
+                            <p><img src="assets/img/destination/<?php echo $descri[0]['imagen']; ?>" alt="" style="max-height: 20rem;"></p>
                         </div><br>
                         <?php
                             if(isset($_SESSION['user_id'])){
-                                echo '<a href="Rdestino.php?id='.$destino["id_destino"].'&id_usu='.$id.'" class="boxed-btn4 " >Anadir al Carrito</a></p>';
+                                echo '<a href="Rdestino.php?id='.$descri["id_destino"].'&id_usu='.$id.'" class="boxed-btn4 " >Anadir al Carrito</a></p>';
                             }else{
                                 echo '<a href="cart.php" class="boxed-btn4">Anadir al Carrito</a></p>';
                             }
