@@ -25,12 +25,7 @@
                                             <li><a class="active" href="index.php">Inicio</a></li>
                                             <li><a href="destinos.php">Destinos</a></li>
                                             
-                                            <li><a href="#">Paginas <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                        <li><a href="destination_details.php">Destino detalles</a></li>
-                                                        <li><a href="elements.php">Elementos</a></li>
-                                                </ul>
-                                            </li>
+                                           
                                             <?php
                                              if(!isset($_SESSION['user_id'])){
                                                 
@@ -45,7 +40,13 @@
 
                                             }
                                             ?>
-                                            <li><a class="" href="travel_destination.php">Compras Realizadas</a></li>
+                                            <li>
+                                            <?php
+                                            if(isset($_SESSION['user_id'])){
+                                                echo '<a class="" href="travel_destination.php">Compras Realizadas</a></li>';
+                                            }
+                                            ?>
+                                            
                                             <!-- <li><a href="login/index.php">Cerrar sesion</a></li> -->
                                             <!-- <li><a href="contact.php">Contactanos</a></li> -->
                                         </ul>

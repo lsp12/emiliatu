@@ -20,7 +20,7 @@
                 <div class="col-lg-8 col-md-9">
                     <div class="destination_info">
                         <h3>Descripcion</h3>
-                        <p><?php echo $descri[0]['descripcion']; var_dump($descri)?></p>
+                        <p><?php echo $descri[0]['descripcion'];?></p>
                         <p></p>
                         <p>Fecha de salida: <br>
                         <?php
@@ -38,7 +38,8 @@
                         </div><br>
                         <?php
                             if(isset($_SESSION['user_id'])){
-                                echo '<a href="Rdestino.php?id='.$descri["id_destino"].'&id_usu='.$id.'" class="boxed-btn4 " >Anadir al Carrito</a></p>';
+                                $id=$_SESSION['user_id'];
+                                echo '<a href="Rdestino.php?id='.$descri[0]["id_destino"].'&id_usu='.$id.'" class="boxed-btn4 " >Anadir al Carrito</a></p>';
                             }else{
                                 echo '<a href="cart.php" class="boxed-btn4">Anadir al Carrito</a></p>';
                             }

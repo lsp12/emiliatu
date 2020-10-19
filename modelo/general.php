@@ -77,13 +77,26 @@ $con = connectDatabase();
             
             $query=$con->query("SELECT * FROM `destino` WHERE destino.nombre LIKE '%$busq%'");
         }elseif($busq==null){
-            $query=$con->query("SELECT * FROM `destino` WHERE destino.fecha_1 LIKE '%$newDate%' OR destino.fecha_2 LIKE '%$newDate%' OR destino.fecha_3 LIKE '%$newDate%'");
+            $query=$con->query("SELECT 
+            destino.id_destino,
+            destino.nombre,
+            destino.imagen,
+            rutas.fecha FROM `rutas` INNER JOIN destino ON destino.id_destino = rutas.id_destino WHERE rutas.fecha LIKE '%$newDate%'");
             
         }elseif($newDate==null && $busq==null){
             echo "Ingrese algun parametro";
             
         }else{
-            $query=$con->query("SELECT * FROM `destino` WHERE destino.nombre LIKE '%$busq%' AND (fecha_1 LIKE '%$newDate%' OR fecha_2 LIKE '%$newDate%' OR fecha_3 LIKE '%$newDate%')");
+            $query=$con->query("SELECT
+            destino.id_destino,
+            destino.nombre,
+            destino.imagen,
+            rutas.fecha
+        FROM
+            `rutas`
+        INNER JOIN destino ON destino.id_destino = rutas.id_destino
+        WHERE
+            fecha LIKE '%$newDate%' AND destino.nombre LIKE '%$busq%'");
         }
         return recorrer($query);
     }
