@@ -73,7 +73,7 @@
                             
                             </div>
                           </td>
-                          <td class="my-fake-form>
+                          <td class="my-fake-form">
                           
                             <h5 name="precio" class="demo" id="posting-value-1">$15</h5>
                           
@@ -182,7 +182,7 @@
     function myFunction() {
     let x = document.getElementById("calcular").value;
     x= x*15;
-    document.querySelector("#demo").innerHTML = "$"+x;
+    document.querySelector(".demo").innerHTML = "$"+x;
 }
 
   </script>

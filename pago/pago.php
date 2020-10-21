@@ -48,7 +48,24 @@ require_once("modeloPg/general2.php");
 					<span class="login100-form-title p-b-32">
 						Metodo de Pago
 					</span>
-
+					<span class="txt1 p-b-11">
+						Fecha de Salida
+					</span>
+					<div class="flex-sb-m w-full p-b-20">
+						<select class="form-control" required>
+							<option>-------</option>
+							<?php
+							$id_us=$_GET['id_us'];
+							$id_des=$_GET['id_des'];
+								$fecha=Fechas($id_des);
+								foreach ($fecha as $li) {
+									echo '
+										<option value="'.$li["fecha"].'">'.$li["fecha"].'</option>
+										';			
+								}
+							?>
+						</select>
+					</div>
 					
 					<span class="txt1 p-b-11">
 						Cantidad de personas
@@ -59,6 +76,10 @@ require_once("modeloPg/general2.php");
 						<input type="number" class="input-number input100" id="calcular" name="pasajero" value="1" min="1" max="20" onchange="myFunction()" required>
 						<span class="focus-input100"></span>
 					</div>
+
+					
+
+
 					
 					<span class="txt1 p-b-11">
 						Precio Unitario
@@ -92,6 +113,7 @@ require_once("modeloPg/general2.php");
 							<option>-------</option>
 							<option value="Credito">Credito</option>
 							<option value="Debito">Debito</option>
+							<option value="Paypal">Paypal</option>
 						</select>
 					</div>
 
@@ -104,8 +126,7 @@ require_once("modeloPg/general2.php");
 
 				</form>
 				<?php
-					$id_us=$_GET['id_us'];
-					$id_des=$_GET['id_des'];
+					
 					if(isset($_POST["enviar"])){
 						
 						$pasejeros=$_POST["pasajero"];
