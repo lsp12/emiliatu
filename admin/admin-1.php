@@ -1,6 +1,6 @@
 <?php
+ob_start();
     require_once('../modelo/admin.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administracion</title>
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+  
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/Chart.min.js"></script>
         <style>
@@ -54,12 +56,18 @@
                         /* include_once("componentes/Seccion-de-formulario-boleto.php"); */
                         /* include_once("componentes/seccion_conductor.php"); */
                         include_once("componentes/Section-de-actualiozar-horario.php");
-                        include_once("componentes/graficos.php");
+                        
                     ?>              
         </div>
+        <div class="col-12">
+        <?php
+        include_once("componentes/graficos.php");
+        ?>
         </div>
+        </div>
+        
     </div>
-    <div>
+    
     </div>
 
 
@@ -68,12 +76,15 @@
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-   
+    <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+    <script>
+    
+
+    </script>
     <?php 
                     include_once("componentes/scrip-de-graficos.php");
+                    ob_end_flush();
+
         ?>
 </body>
-<?php
-
-?>
 </html>

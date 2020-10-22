@@ -1,18 +1,8 @@
                   
                   <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                    <form class="form-inline" method="POST">
-                    <div class="form-group mb-2">
-                        <label for="staticEmail2" class="">Buscar por Correo electronico</label>
-                        <!-- <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Buscar por Correo electronico"> -->
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        
-                        <input type="email" class="form-control" id="inputPassword2" placeholder="Correo electronico" name="email">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2" name="buscar">Buscar</button>
-                    </form>
+                    
                     <h2 class="text-center">Tabla general</h2>
-                      <table class="table table-striped table-dark rounded-lg" id="tabla">
+                      <table class="table table-striped rounded-lg" id="tabla">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -70,3 +60,4 @@
                         </tbody>
                       </table>
                     </div>
+                    

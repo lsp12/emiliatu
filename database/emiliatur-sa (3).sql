@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2020 a las 06:22:48
+-- Tiempo de generación: 22-10-2020 a las 04:05:10
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -33,6 +33,7 @@ CREATE TABLE `boleto` (
   `id_destino` int(30) NOT NULL,
   `precio` int(10) NOT NULL,
   `fecha_compra` date NOT NULL,
+  `numero_pasj` int(11) NOT NULL,
   `num_boleto` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
@@ -40,11 +41,11 @@ CREATE TABLE `boleto` (
 -- Volcado de datos para la tabla `boleto`
 --
 
-INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `num_boleto`) VALUES
-(23, 17, 60, '2020-09-10', 10),
-(23, 17, 60, '2020-09-10', 11),
-(23, 17, 60, '2020-09-10', 12),
-(23, 17, 60, '2020-09-10', 13);
+INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `numero_pasj`, `num_boleto`) VALUES
+(23, 17, 60, '2020-09-10', 1, 10),
+(23, 17, 60, '2020-09-10', 2, 11),
+(23, 17, 60, '2020-09-10', 3, 12),
+(23, 17, 60, '2020-09-10', 4, 13);
 
 -- --------------------------------------------------------
 

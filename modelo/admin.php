@@ -355,8 +355,20 @@
 
         return recorrer($query);
     }
-    function Destino(){
+    function BoletosCom(){
         global $con;
-        $query=$con->query("");
+        $query=$con->query("SELECT
+        boleto.num_boleto,
+        boleto.numero_pasj,
+        boleto.id_usuario,
+        usuario.username,
+        boleto.fecha_compra,
+        destino.nombre
+    FROM
+        boleto
+    INNER JOIN usuario ON usuario.id_user = boleto.id_usuario
+    INNER JOIN destino ON destino.id_destino = boleto.id_destino");
+
+    return recorrer($query);
     }
 ?>

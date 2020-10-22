@@ -1,8 +1,8 @@
-<div class="row" style="width: 60%; margin-left: auto;margin-right: auto;">
+<div class="row pt-5" style="width: 60%; margin-left: auto;margin-right: auto;">
                 
                 <h2 class="text-center">Rutas establecidas</h2>
                 <!-- <canvas id="confirmados2"></canvas> -->
-                <table class="table table-striped table-dark rounded-lg" id="tabla">
+                <table class=" rounded-lg" id="tabla1">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -48,11 +48,11 @@
                         </tbody>
                       </table>
             </div>
-          <div class="row">
-            <div class="col-6" style="width: 70%; margin-left: auto;margin-right: auto;">
+          <div class="row pt-5">
+            <div class="col-6" style="width: 100%; margin-left: auto;margin-right: auto;">
                 <h2 class="text-center">Conductores</h2>
                 <!-- <canvas id="provincia" ></canvas> -->
-                <table class="table table-striped table-dark rounded-lg" id="tabla">
+                <table class="table table-striped table rounded-lg" id="tabla2">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -92,8 +92,47 @@
 
 
             </div>
-            <div class="col-6" style="width: 70%; margin-left: auto;margin-right: auto;">
-                <h2 class="text-center">Fallecidos por Cantones</h2>
+          </div>
+            
+            <div class="col-6" style="width: 100%; margin-left: auto;margin-right: auto;">
+                <h2 class="text-center">Boletos comprados</h2>
+                
+                <table class="table table-striped table rounded-lg" id="tabla3">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Nombre Usuario</th>
+                            <th scope="col">Fecha de Compra</th>
+                            <th scope="col">Accion</th>
+                          </tr>
+                        </thead>
+                        
+                        <tbody>
+                    <?php
+                    
+                    
+                    $boletos=BoletosCom();  
+                            
+                        foreach ($boletos as $fila) {
+                            
+                          echo "
+                          <tr>
+                          <th scope='row'>".$fila['num_boleto']."</th>
+                          <td>".$fila['nombre']."</td>
+                          <td>".$fila['username']."</td>
+                          <td>".$fila['fecha_compra']."</td>
+                          <td>
+                          <a href='borrar.php' class='btn btn-primary ml-5 mb-2'>Eliminar</a><br>
+                          </td>
+                          </tr>        
+                          ";
+                        }
+                                                  
+                        ?>
+                        
+                        </tbody>
+                      </table>
                 <!-- <canvas id="provincia2" ></canvas> -->
             </div>
           </div>
@@ -101,3 +140,4 @@
             <h2 class="text-center">Recuperados</h2>
             <!-- <canvas id="provincia3"></canvas> -->
         </div>
+        
