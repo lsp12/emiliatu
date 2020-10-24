@@ -113,18 +113,42 @@ require_once("modeloPg/general2.php");
 							<option>-------</option>
 							<option value="Credito">Credito</option>
 							<option value="Debito">Debito</option>
-							<option value="Paypal">Paypal</option>
+							
 						</select>
 					</div>
 
-					<div class="container-login100-form-btn">
+					<div class="container-login100-form-btn p-b-5">
 						<button class="login100-form-btn mr-3" name="enviar">
 							Comprar
 						</button>
 						<a href="../index.php" class="login100-form-btn ml-5">Cancelar</a>
 					</div>
-
+					
 				</form>
+				
+				<div class="container-login100-form-btn p-t-10">
+				<h3>o paga con</h3>
+				<form
+          action="https://www.paypal.com/cgi-bin/webscr"
+          method="post"
+          target="_top"
+        >
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="8WL36TRP2ZZ74" />
+          <input
+            type="image"
+            src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif"
+            name="submit"
+            alt="PayPal - The safer, easier way to pay online!"
+          />
+          <img
+            alt=""
+            src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif"
+            width="1"
+            height="1"
+          />
+		</form>
+		</div>
 				<?php
 					
 					if(isset($_POST["enviar"])){
