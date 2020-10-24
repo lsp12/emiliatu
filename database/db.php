@@ -18,7 +18,7 @@
         $pass='1207345768';
         $db='turismo_vera';
         $puerto=11136;
-        $mysqli = new mysqli($host,$user,$pass,$db, $puerto);
+        $mysqli = new mysqli($host,$user,$pass,$db,$puerto);
         if($mysqli->connect_errno){
             $result = "Fallo al conectar a MySQL: " . $mysqli->connect_error;
         }

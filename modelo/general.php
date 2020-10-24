@@ -101,5 +101,20 @@ $con = connectDatabase();
         return recorrer($query);
     }
 
+    function CarritoEl($id_usu){
+        global $con;
+        $query=$con->query("SELECT
+        destino.nombre,
+        destino.imagen,
+        destino.id_destino,
+        boleto.precio,
+        boleto.id_usuario
+    FROM
+        `boleto`
+    INNER JOIN destino ON destino.id_destino = boleto.id_destino
+    WHERE
+        id_usuario = $id_usu");
+        return recorrer($query);
+    }
     
 ?>

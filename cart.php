@@ -30,7 +30,7 @@
  
         header("location: login/index.php");
         }
-      echo $id;
+      /* echo $id; */
       ?>
       <section class="cart_area section_padding">
         <div class="container">
