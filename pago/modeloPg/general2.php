@@ -27,4 +27,27 @@ function Fechas($id_des){
     $query=$con->query("SELECT fecha FROM `rutas` WHERE id_destino = $id_des");
     return recorrer($query);
 }
+function Compra($id_us,$id_des, $pasejeros, $cantidad){
+    global $con;
+    $query=$con->query("INSERT INTO `compras`(
+        `id`,
+        `id_usuario`,
+        `id_destino`,
+        `boletos`,
+        `costo`,
+        `Estado_pago`
+    )
+    VALUES(
+        NULL,
+        '$id_us',
+        '$id_des',
+        '$pasejeros',
+        '$cantidad',
+        'pendiente'
+    )");
+}
+function EliminarC($id_compra){
+    global $con;
+    $query=$con->query("DELETE FROM `carrito` WHERE `carrito`.`id_compra` = $id_compra");
+}
 ?>

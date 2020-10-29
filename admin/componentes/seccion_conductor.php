@@ -1,90 +1,39 @@
 <div class="tab-pane fade mb-5 p-4" style="background-color: white;" id="v-pills-profile-3" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <h2>Horario semanal</h2>
-                    <form method="POST"  action="admin-1.php">
-                        <div class="form-group row mb-4">
-                        <div class="col-6">
-                          <label for="exampleFormControlSelect2">Destino</label>
-                          <select class="form-control" id="cantones" name="id_destino">
-                            <option value="">Seleciona</option>
-                            <?php
+<h2 class="text-center">Tabla general</h2>
+                      <table class="table table-striped rounded-lg" id="tabla4">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre de Usuario</th>
+                            <th scope="col">Correo electronico</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Estado</th>
                             
                             
-                            
-                            foreach ($destino as $fila) {
-                                
-                                echo "
-                                <option value='".$fila['id_destino'] ."'>".$fila['nombre']."</option>
+                          </tr>
+                        </thead>
+                        <tbody>
+                    <?php
+                    $usuario=EstadoPg();
+                     
+                        foreach($usuario as $li){
+                          echo "
+                                <tr>
+                                <th scope='row'>".$li['id_user']."</th>
+                                <td>".$li['username']."</td>
+                                <td>".$li['email']."</td>
+                                <td>".$li['nombre']."</td>
+                                <td>
+                                  <a href='borrar.php?id_acepta=".$li['id']."' class='btn btn-primary ml-5 mb-2'>Aprobar Pago</a><br>
+                                  <a href='borrar.php?id_rechaza=".$li['id']."' class='btn btn-primary ml-5 mb-2'>Rechazar Pago</a><br>
+                                </td>
+                                </tr>        
                                 ";
-                            }
+                        }
+                       
+                                                  
                         ?>
-                          </select>
-                          </div>
-
-                          <div class="col-6">
-                          <label for="exampleFormControlSelect2">Horario</label>
-                          <select class="form-control" id="cantones" name="conductor">
-                            <option value="">Seleciona</option>
-                            <?php
-                            $conductores=mostrarConductor();
-                            
-                            foreach ($conductores as $fila) {
-                                
-                                echo "
-                                <option value='".$fila['nombre'] ."'>".$fila['nombre']."</option>
-                                ";
-                            }
-                        ?>
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-5">
-                          <label for="exampleFormControlSelect2">Bus</label>
-                          <select class="form-control" id="tipo" name="bus">
-                          <option value="">Seleciona</option>
-                          <?php
-                            $buses=mostrarBuses();
-                            
-                            foreach ($buses as $fila) {
-                                
-                                echo "
-                                <option value='".$fila['matricula'] ."'>".$fila['matricula']."</option>
-                                ";
-                            }
-                        ?>
-                          
-                          </select>
-                          </div>
-                          <div class="col-4">
-                          <label for="exampleFormControlSelect2">Fecha de salida</label>
-                          <input type="date" name="fecha" id="" >
-                          </div>
-                          <div class="col-3">
-                          <label for="exampleFormControlSelect2">hora de salida</label>
-                          <input type="time" name="hora" id="" >
-                          </div>
-                          <!-- <div class="col-3">
-                          <label for="exampleFormControlSelect2">hora de llegada</label>
-                          <input type="time" name="llegada" id="">
-                          </div> -->
-                        </div>
-                        <!-- <div class="form-group">
-                          <label for="exampleFormControlInput1">Ingrese numero</label>
-                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Solo numeros" name="valor">
-                        </div> -->
-                        <input type="submit" value="Guardar" class="btn btn-primary" name="enviar">
                         
-                      </form>
-
-                      <?php 
-                      if(isset($_POST['enviar'])){
-                        $id_des=$_POST['id_destino'];
-                        $fecha=$_POST['fecha'];
-                        $hora=$_POST['hora'];
-                        $id_bus=$_POST['bus'];
-                        $ced=$_POST['conductor'];
-                        actualizarDestino($id_des, $fecha, $hora,$ced,$id_bus);
-                      }
-                      
-                      ?>
+                        </tbody>
+                      </table>
                     </div>

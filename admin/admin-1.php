@@ -54,7 +54,7 @@ ob_start();
                     <?php
                         include_once("componentes/Seccion-tabla-y-buscador.php");
                         /* include_once("componentes/Seccion-de-formulario-boleto.php"); */
-                        /* include_once("componentes/seccion_conductor.php"); */
+                        include_once("componentes/seccion_conductor.php");
                         include_once("componentes/Section-de-actualiozar-horario.php");
                         
                     ?>              

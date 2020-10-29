@@ -50,6 +50,7 @@ $con = connectDatabase();
         global $con;
         $query=$con->query("SELECT
         nombre,
+        carrito.id_compra,
         descripcion,
         destino.imagen,
         id_destino, 
@@ -108,7 +109,8 @@ $con = connectDatabase();
         destino.imagen,
         destino.id_destino,
         boleto.precio,
-        boleto.id_usuario
+        boleto.id_usuario,
+        boleto.Estado_pago
     FROM
         `boleto`
     INNER JOIN destino ON destino.id_destino = boleto.id_destino
@@ -116,5 +118,26 @@ $con = connectDatabase();
         id_usuario = $id_usu");
         return recorrer($query);
     }
-    
+    function Compras($id_usu){
+    global $con;
+    $query = $con->query("SELECT
+    id,
+    destino.nombre,
+    destino.imagen,
+    destino.id_destino,
+    id_usuario,
+    costo,
+    Estado_pago,
+    boletos
+FROM
+    `compras`
+INNER JOIN destino ON destino.id_destino = compras.id_destino
+WHERE
+    compras.id_usuario = $id_usu");
+    return recorrer($query);
+    }
+    function EliminarCompra($id_compra){
+        global $con;
+        $query=$con->query("DELETE FROM `compras` WHERE `compras`.`id` = $id_compra");
+    }
 ?>

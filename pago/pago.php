@@ -57,6 +57,7 @@ require_once("modeloPg/general2.php");
 							<?php
 							$id_us=$_GET['id_us'];
 							$id_des=$_GET['id_des'];
+							$id_carr=$_GET['id_carr'];
 								$fecha=Fechas($id_des);
 								foreach ($fecha as $li) {
 									echo '
@@ -156,7 +157,9 @@ require_once("modeloPg/general2.php");
 						$pasejeros=$_POST["pasajero"];
 						$cantidad=$_POST["total"];
 						
-						comprar($id_us,$id_des, $pasejeros, $cantidad);
+						Compra($id_us,$id_des, $pasejeros, $cantidad);
+						EliminarC($id_carr);
+						header("location: ../travel_destination.php");
 					}
 					
 				?>

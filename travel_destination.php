@@ -34,6 +34,7 @@
                     <th scope="col">Ciudad</th>
                     <th scope="col">Personas</th>
                     <th scope="col">Total</th>
+                    <th scope="col">Estado de pago</th>
                     <th scope="col">Accion</th>
                   </tr>
                 </thead>
@@ -41,29 +42,10 @@
                   <?php
                   
                   $id=$_SESSION['user_id'];
-                    $lista=CarritoEl($id);
-                    $aux=0;
-                    $imagen='';
-                    $nombre='';
-                    $total=0;
-                    $destino="";
-                    foreach ($lista as $key) {
-                      $aux++;
-                    
-                    
-                      $total+=$key['precio'];
-                    
-                    }
+                  echo $id;
+                    $lista=Compras($id);
+                
                     foreach ($lista as $li) {
-                      
-                      if($li['id_destino']==$destino){
-                        
-                        $imagen=$li['imagen'];
-                        $nombre=$li['nombre'];
-                        
-                        
-                      }else{
-                      
                         echo '<tr>
                         <td>
                           <div class="media">
@@ -80,7 +62,7 @@
                         <td>
                           <div class="product_count">
                           
-                          '.$aux.'
+                          '.$li["boletos"].'
                         
                           
                           </div>
@@ -88,21 +70,23 @@
                         
                         <td>
                         
-                          <h5 name="precio" id="demo">'.$total.'</h5>
+                          <h5 name="precio" id="demo">'.$li["costo"].'</h5>
                         
                         </td>
-                        
+                        <td>
+                          '.$li["Estado_pago"].'
+                        </td>
                           <td>
                             <div class="d-flex flex-row">
                               
                               
-                              <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2 boxed-btn4"><h4 style="color: white;">cancelar</h4></a>
+                              <a href="Rdestino.php?id_compra='.$li["id"].'" class="p-2 boxed-btn4"><h4 style="color: white;">cancelar</h4></a>
                             </div>
                           <td>
                         </tr>';
                       }
-                      $destino=$li['id_destino'];
-                    }
+                      
+                    
                     
                     $id=$_SESSION['user_id'];
                     if($id==null){

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2020 a las 04:05:10
+-- Tiempo de generación: 29-10-2020 a las 04:39:04
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -34,18 +34,19 @@ CREATE TABLE `boleto` (
   `precio` int(10) NOT NULL,
   `fecha_compra` date NOT NULL,
   `numero_pasj` int(11) NOT NULL,
-  `num_boleto` int(10) NOT NULL
+  `num_boleto` int(10) NOT NULL,
+  `Estado_pago` varchar(25) COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `boleto`
 --
 
-INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `numero_pasj`, `num_boleto`) VALUES
-(23, 17, 60, '2020-09-10', 1, 10),
-(23, 17, 60, '2020-09-10', 2, 11),
-(23, 17, 60, '2020-09-10', 3, 12),
-(23, 17, 60, '2020-09-10', 4, 13);
+INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `numero_pasj`, `num_boleto`, `Estado_pago`) VALUES
+(23, 17, 60, '2020-09-10', 1, 10, 'aceptado'),
+(23, 17, 60, '2020-09-10', 2, 11, 'aceptado'),
+(23, 17, 60, '2020-09-10', 3, 12, 'aceptado'),
+(23, 17, 60, '2020-09-10', 4, 13, 'aceptado');
 
 -- --------------------------------------------------------
 
@@ -93,6 +94,30 @@ CREATE TABLE `carrito` (
 INSERT INTO `carrito` (`id_compra`, `destino`, `id_usuario`) VALUES
 (19, 15, 21),
 (24, 7, 23);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_destino` int(11) NOT NULL,
+  `boletos` int(11) NOT NULL,
+  `costo` int(11) NOT NULL,
+  `Estado_pago` varchar(30) COLLATE utf32_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `compras`
+--
+
+INSERT INTO `compras` (`id`, `id_usuario`, `id_destino`, `boletos`, `costo`, `Estado_pago`) VALUES
+(1, 21, 18, 4, 150, 'Aprobado'),
+(2, 23, 18, 4, 150, 'Aprobado'),
+(4, 23, 1, 9, 135, 'Aprobado');
 
 -- --------------------------------------------------------
 
@@ -163,18 +188,6 @@ INSERT INTO `empleado` (`cedula`, `nombre_emp`, `apellido`, `edad`, `sexo`, `tel
 (564545655, 'Pablo', 'Caro', 25, 'masculino', 942572362),
 (1207564565, 'Esther', 'Pedraza', 45, 'femenino', 974432455),
 (1235454324, 'vicente', 'torrez', 42, 'hombre', 97542435);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `fecha`
---
-
-CREATE TABLE `fecha` (
-  `id` int(11) NOT NULL,
-  `id_destino` int(30) NOT NULL,
-  `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -256,6 +269,14 @@ ALTER TABLE `carrito`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_destino` (`id_destino`);
+
+--
 -- Indices de la tabla `destino`
 --
 ALTER TABLE `destino`
@@ -266,13 +287,6 @@ ALTER TABLE `destino`
 --
 ALTER TABLE `empleado`
   ADD PRIMARY KEY (`cedula`);
-
---
--- Indices de la tabla `fecha`
---
-ALTER TABLE `fecha`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_destino` (`id_destino`);
 
 --
 -- Indices de la tabla `rutas`
@@ -309,19 +323,19 @@ ALTER TABLE `buses`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de la tabla `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
   MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT de la tabla `fecha`
---
-ALTER TABLE `fecha`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `rutas`
@@ -354,10 +368,11 @@ ALTER TABLE `carrito`
   ADD CONSTRAINT `r` FOREIGN KEY (`destino`) REFERENCES `destino` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `fecha`
+-- Filtros para la tabla `compras`
 --
-ALTER TABLE `fecha`
-  ADD CONSTRAINT `fecha_ibfk_1` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `compras`
+  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`);
 
 --
 -- Filtros para la tabla `rutas`

@@ -82,7 +82,7 @@
                             <td>
                               <div class="d-flex flex-row">
                                 
-                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["id_destino"].'" class="p-2 boxed-btn4" id="submit-form-link">Comprar</a>
+                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["id_destino"].'&id_carr='.$li["id_compra"].'" class="p-2 boxed-btn4" id="submit-form-link">Comprar</a>
                                 <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
                               </div>
                             <td>

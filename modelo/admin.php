@@ -371,4 +371,10 @@
 
     return recorrer($query);
     }
+    function EstadoPg(){
+        global $con;
+        $query = $con->query("SELECT usuario.id_user, usuario.username, usuario.email, compras.id, destino.nombre FROM compras 
+        INNER JOIN usuario ON usuario.id_user=compras.id_usuario INNER JOIN destino ON destino.id_destino = compras.id_destino");
+        return recorrer($query);
+        }
 ?>
