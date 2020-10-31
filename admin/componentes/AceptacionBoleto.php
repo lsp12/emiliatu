@@ -7,7 +7,7 @@
                             <th scope="col">Nombre de Usuario</th>
                             <th scope="col">Correo electronico</th>
                             <th scope="col">Destino</th>
-                            <th scope="col">Estado</th>
+                            <th scope="col" style="text-align: center;">Estado</th>
                             
                             
                           </tr>
@@ -23,9 +23,9 @@
                                 <td>".$li['username']."</td>
                                 <td>".$li['email']."</td>
                                 <td>".$li['nombre']."</td>
-                                <td>
-                                  <a href='borrar.php?id_acepta=".$li['id']."' class='btn btn-primary ml-5 mb-2'>Aprobar Pago</a><br>
-                                  <a href='borrar.php?id_rechaza=".$li['id']."' class='btn btn-primary ml-5 mb-2'>Rechazar Pago</a><br>
+                                <td style='text-align: center;''>
+                                  <a href='borrar.php?id_acepta=".$li['id']."' class='btn btn-primary ml-2 mb-1 p-1'>Aprobar Pago</a><br>
+                                  <a href='borrar.php?id_rechaza=".$li['id']."' class='btn btn-primary ml-2 mb-1 p-1'>Rechazar Pago</a><br>
                                 </td>
                                 </tr>        
                                 ";

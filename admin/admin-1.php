@@ -45,7 +45,7 @@ ob_start();
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Vista general</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">actualizar datos</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-2" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actualizar horario</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-3" role="tab" aria-controls="v-pills-profile" aria-selected="false">Asignaro conductor</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-3" role="tab" aria-controls="v-pills-profile" aria-selected="false">acreditacion de boleto</a>
                     
                   </div>
                 </div>
@@ -53,8 +53,8 @@ ob_start();
                   <div class="tab-content" id="v-pills-tabContent">
                     <?php
                         include_once("componentes/Seccion-tabla-y-buscador.php");
-                        /* include_once("componentes/Seccion-de-formulario-boleto.php"); */
-                        include_once("componentes/seccion_conductor.php");
+                        include_once("componentes/generarDoc.php");
+                        include_once("componentes/AceptacionBoleto.php");
                         include_once("componentes/Section-de-actualiozar-horario.php");
                         
                     ?>              
