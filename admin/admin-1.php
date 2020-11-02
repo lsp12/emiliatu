@@ -31,7 +31,7 @@ ob_start();
 <body>
 <ul class="nav justify-content-end ">
   <li class="nav-item m-2">
-    <a class="nav-link active text-secondary p-3 mb-2" style="background-color: rgba(248, 251, 255, 0.904);border-radius: 15%;" href="#">Cerrar Sesion</a>
+    <a class="nav-link active text-secondary p-3 mb-2" style="background-color: rgba(248, 251, 255, 0.904);border-radius: 15%;" href="../login/index.php">Cerrar Sesion</a>
   </li>
 </ul>
     <div class="container fondo mb-3 pb-4 rounded-lg">
@@ -43,9 +43,10 @@ ob_start();
                 <div class="col-3">
                   <div class="nav flex-column nav-pills bg-dark rounded-lg" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Vista general</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">actualizar datos</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Insertar nuevo conductor</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-2" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actualizar horario</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-3" role="tab" aria-controls="v-pills-profile" aria-selected="false">acreditacion de boleto</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-4" role="tab" aria-controls="v-pills-profile" aria-selected="false">Insertar bus</a>
                     
                   </div>
                 </div>
@@ -55,6 +56,7 @@ ob_start();
                         include_once("componentes/Seccion-tabla-y-buscador.php");
                         include_once("componentes/generarDoc.php");
                         include_once("componentes/AceptacionBoleto.php");
+                        include_once("componentes/inserta-bus.php");
                         include_once("componentes/Section-de-actualiozar-horario.php");
                         
                     ?>              

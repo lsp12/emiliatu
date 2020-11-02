@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2020 a las 04:39:04
+-- Tiempo de generación: 02-11-2020 a las 22:29:24
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -69,9 +69,10 @@ CREATE TABLE `buses` (
 
 INSERT INTO `buses` (`matricula`, `peso`, `altura`, `capacidad`, `estado`, `numeroVehiculo`) VALUES
 ('ESP-123', 45, 10, 40, 'activo', 1),
-('hps-453', 30, 25, 40, 'activo', 2),
-('jps-546', 30, 40, 40, 'activo', 3),
+('hps-453', 30, 25, 40, 'inactivo', 2),
+('jps-546', 30, 40, 40, 'inactivo', 3),
 ('kls-325', 25, 40, 40, 'activo', 5),
+('ksj-951', 50, 20, 40, 'activo', 7),
 ('lsd-753', 30, 25, 40, 'activo', 6),
 ('lsp-785', 30, 25, 40, 'activo', 4);
 
@@ -174,7 +175,7 @@ CREATE TABLE `empleado` (
   `apellido` varchar(30) COLLATE utf32_spanish_ci NOT NULL,
   `edad` int(10) NOT NULL,
   `sexo` varchar(10) COLLATE utf32_spanish_ci NOT NULL,
-  `telefono` int(15) NOT NULL
+  `telefono` varchar(25) COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
 --
@@ -182,12 +183,13 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`cedula`, `nombre_emp`, `apellido`, `edad`, `sexo`, `telefono`) VALUES
-(12356543, 'Olatz', 'Fuentes', 35, 'Masculino', 975465762),
-(123245324, 'juan', 'diaz', 25, 'hombre', 9142324),
-(245653535, 'Andrea', 'Prat', 25, 'femenino', 945454757),
-(564545655, 'Pablo', 'Caro', 25, 'masculino', 942572362),
-(1207564565, 'Esther', 'Pedraza', 45, 'femenino', 974432455),
-(1235454324, 'vicente', 'torrez', 42, 'hombre', 97542435);
+(12356543, 'Olatz', 'Fuentes', 35, 'Masculino', '975465762'),
+(123245324, 'juan', 'diaz', 25, 'hombre', '9142324'),
+(245653535, 'Andrea', 'Prat', 25, 'femenino', '945454757'),
+(564545655, 'Pablo', 'Caro', 25, 'masculino', '942572362'),
+(1207207755, 'manuel', 'torrez', 35, 'masculino', '997424354'),
+(1207564565, 'Esther', 'Pedraza', 45, 'femenino', '974432455'),
+(1235454324, 'vicente', 'torrez', 42, 'hombre', '97542435');
 
 -- --------------------------------------------------------
 
@@ -212,7 +214,23 @@ INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`, `hora`
 (34, 245653535, 4, 'ESP-123', '2020-10-08', '2:25'),
 (40, 12356543, 1, 'hps-453', '2020-10-07', '23:36'),
 (41, 12356543, 2, 'ESP-123', '2020-10-06', '22:32'),
-(42, 12356543, 1, 'ESP-123', '2020-10-28', '03:42');
+(42, 12356543, 1, 'ESP-123', '2020-10-28', '03:42'),
+(43, 12356543, 2, 'hps-453', '2020-10-30', '21:47'),
+(44, 123245324, 3, 'ESP-123', '2020-10-30', '23:48'),
+(45, 245653535, 4, 'jps-546', '2020-10-31', '23:49'),
+(46, 123245324, 5, 'ESP-123', '2020-10-31', '23:50'),
+(47, 564545655, 6, 'lsd-753', '2020-11-01', '23:50'),
+(48, 1207564565, 7, 'hps-453', '2020-10-31', '19:51'),
+(49, 1235454324, 9, 'kls-325', '2020-11-03', '15:51'),
+(50, 564545655, 10, 'lsp-785', '2020-11-02', '23:51'),
+(51, 1235454324, 11, 'lsd-753', '2020-11-04', '14:52'),
+(52, 12356543, 12, 'ESP-123', '2020-11-07', '23:52'),
+(53, 245653535, 14, 'lsp-785', '2020-11-03', '23:53'),
+(54, 1235454324, 13, 'lsd-753', '2020-10-31', '22:54'),
+(55, 12356543, 15, 'lsd-753', '2020-11-02', '23:55'),
+(56, 123245324, 16, 'hps-453', '2020-11-07', '23:56'),
+(57, 564545655, 8, 'kls-325', '2020-10-31', '23:56'),
+(58, 1207564565, 17, 'lsd-753', '2020-10-30', '23:57');
 
 -- --------------------------------------------------------
 
@@ -317,7 +335,7 @@ ALTER TABLE `boleto`
 -- AUTO_INCREMENT de la tabla `buses`
 --
 ALTER TABLE `buses`
-  MODIFY `numeroVehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `numeroVehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `carrito`
@@ -341,7 +359,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `rutas`
 --
 ALTER TABLE `rutas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

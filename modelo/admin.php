@@ -193,4 +193,55 @@
         $query=$con->query("");
         /* return recorrer($query); */
     }
+
+    function EstadoBs(){
+        global $con;
+        $query=$con->query("SELECT `numeroVehiculo`, `estado`, `matricula` FROM `buses` ORDER BY `buses`.`numeroVehiculo` ASC");
+        return recorrer($query);
+    }
+
+    function InsertarBus($matricula,$peso,$Altura,$capacidad,$estado){
+        global $con;
+        $query=$con->query("INSERT INTO `buses`(
+            `matricula`,
+            `peso`,
+            `altura`,
+            `capacidad`,
+            `estado`,
+            `numeroVehiculo`
+        )
+        VALUES(
+            '$matricula',
+            '$peso',
+            '$Altura',
+            '$capacidad',
+            '$estado',
+            NULL
+        )");
+    }
+
+    function InsertaEmp($cedula,$nombre_emp,$apellido,$edad,$sexo,$celular){
+        global $con;
+        $query=$con->query("INSERT INTO `empleado`(
+            `cedula`,
+            `nombre_emp`,
+            `apellido`,
+            `edad`,
+            `sexo`,
+            `telefono`
+        )
+        VALUES(
+            '$cedula',
+            '$nombre_emp',
+            '$apellido',
+            '$edad',
+            '$sexo',
+            '$celular'
+        )");
+    }
+    function ActEmple(){
+        global $con;
+        $query=$con->query("SELECT * FROM `empleado` ORDER BY `empleado`.`cedula` ASC");
+        return recorrer($query);
+    }   
 ?>
