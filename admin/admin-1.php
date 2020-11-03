@@ -1,7 +1,13 @@
 <?php
 ob_start();
     require_once('../modelo/admin.php');
-    session_start()
+    session_start();
+    $id=$_SESSION['user_id']; 
+      
+      if($id==null){
+ 
+        header("location: login/index.php");
+        }
 ?>
 <!DOCTYPE html>
 <html lang="es">
