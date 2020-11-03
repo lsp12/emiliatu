@@ -1,6 +1,7 @@
 <?php
 ob_start();
     require_once('../modelo/admin.php');
+    session_start()
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -31,7 +32,7 @@ ob_start();
 <body>
 <ul class="nav justify-content-end ">
   <li class="nav-item m-2">
-    <a class="nav-link active text-secondary p-3 mb-2" style="background-color: rgba(248, 251, 255, 0.904);border-radius: 15%;" href="../login/index.php">Cerrar Sesion</a>
+    <a class="nav-link active text-secondary p-3 mb-2" style="background-color: rgba(248, 251, 255, 0.904);border-radius: 15%;" href="../cerrar.php">Cerrar sesion</a>
   </li>
 </ul>
     <div class="container fondo mb-3 pb-4 rounded-lg">
