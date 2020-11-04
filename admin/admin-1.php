@@ -49,6 +49,7 @@ ob_start();
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-2" role="tab" aria-controls="v-pills-profile" aria-selected="false">Actualizar horario</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-3" role="tab" aria-controls="v-pills-profile" aria-selected="false">acreditacion de boleto</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-4" role="tab" aria-controls="v-pills-profile" aria-selected="false">Insertar bus</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile-5" role="tab" aria-controls="v-pills-profile" aria-selected="false">Mas Detalles</a>
                   </div>
                 </div>
                 <div class="col-9">
@@ -59,12 +60,8 @@ ob_start();
                         include_once("componentes/AceptacionBoleto.php");
                         include_once("componentes/inserta-bus.php");
                         include_once("componentes/Section-de-actualiozar-horario.php");
+                        include_once("componentes/mas-detalles.php");
                     ?>              
-        </div>
-        <div class="col-12">
-          <?php
-            include_once("componentes/graficos.php");
-          ?>
         </div>
       </div>
     </div>
