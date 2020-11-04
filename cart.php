@@ -14,7 +14,7 @@
           <div class="single-slider slider-height2 d-flex align-items-center">
               <div class="container">
                   <div class="row">
-                      <div class="col-xl-12">
+                      <div class="col-xl-12 p-4">
                           <div class="hero-cap text-center">
                               <h2>Lista de carrito</h2>
                           </div>
@@ -36,7 +36,7 @@
         <div class="container">
           <div class="cart_inner">
             <div class="table-responsive">
-              <table class="table">
+              <table class="table text-center">
                 <thead>
                   <tr>
                     <th scope="col">Imagen</th>
@@ -52,11 +52,11 @@
                     foreach ($lista as $li) {
                       echo '
                       
-                        <tr>
+                        <tr class="text-center">
                           <td>
                             <div class="media">
                               <div class="d-flex thumb">
-                                <img src="assets/img/destination/'.$li["imagen"].'" style="height: 10rem;" alt="" />
+                                <img src="assets/img/destination/'.$li["imagen"].'" style="height: 7rem;" alt="" />
                               </div>
                               
                             </div>
@@ -67,22 +67,15 @@
                           </td>
                           <td>
                             <div class="product_count">
-                            
                               <input type="number" class="input-number" id="calcular" name="quantity" value="1" min="1" max="20" onchange="myFunction()">
-                          
-                            
                             </div>
                           </td>
                           <td class="my-fake-form">
-                          
                             <h5 name="precio" class="demo" id="posting-value-1">$15</h5>
-                          
                           </td>
-                          
-                            <td>
+                            <td class="ml-4>
                               <div class="d-flex flex-row">
-                                
-                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["id_destino"].'&id_carr='.$li["id_compra"].'" class="p-2 boxed-btn4" id="submit-form-link">Comprar</a>
+                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["id_destino"].'&id_carr='.$li["id_compra"].'" class="p-2 btn btn-success" id="submit-form-link">Comprar</a>
                                 <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
                               </div>
                             <td>
