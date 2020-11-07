@@ -21,7 +21,7 @@
                 <td>".$li['email']."</td>
                 <td>".$li['nombre']."</td>
                 <td style='text-align: center;''>
-                  <a href='borrar.php?id_acepta=".$li['id']."' class='btn btn-primary ml-2 mb-1 p-1'>Aprobar</a><br>
+                  <a href='borrar.php?id_acepta=".$li['id']."&id_usuario=".$li['id_user']."&id_destino=".$li['id_destino']."&boletos=".$li['boletos']."&costo=".$li['costo']."' class='btn btn-primary ml-2 mb-1 p-1'>Aprobar</a><br>
                   <a href='borrar.php?id_rechaza=".$li['id']."' class='btn btn-danger ml-2 mb-1 p-1'>Rechazar</a><br>
                 </td>
               </tr>        

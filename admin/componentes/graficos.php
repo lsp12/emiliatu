@@ -105,7 +105,7 @@
                               <td>".$fila['username']."</td>
                               <td>".$fila['fecha_compra']."</td>
                               <td>
-                              <a href='borrar.php' class='btn btn-danger ml-5 mb-2'>Eliminar</a><br>
+                              <a href='borrar.php?num_boleto=".$fila['num_boleto']."' class='btn btn-danger ml-5 mb-2'>Eliminar</a><br>
                               </td>
                             </tr>        
                           ";

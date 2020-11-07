@@ -184,8 +184,8 @@
     }
     function EstadoPg(){
         global $con;
-        $query = $con->query("SELECT usuario.id_user, usuario.username, usuario.email, compras.id, destino.nombre FROM compras 
-        INNER JOIN usuario ON usuario.id_user=compras.id_usuario INNER JOIN destino ON destino.id_destino = compras.id_destino WHERE compras.Estado_pago='pendiente'");
+        $query = $con->query("SELECT usuario.id_user, usuario.username, usuario.email, compras.id, destino.nombre, compras.id_destino, compras.boletos, compras.costo FROM compras 
+        INNER JOIN usuario ON usuario.id_user=compras.id_usuario INNER JOIN destino ON destino.id_destino = compras.id_destino WHERE compras.Estado_pago='pendiente';");
         return recorrer($query);
         }
     function Destinodoc($id_des){
@@ -244,4 +244,18 @@
         $query=$con->query("SELECT * FROM `empleado` ORDER BY `empleado`.`cedula` ASC");
         return recorrer($query);
     }   
+
+    function comprar($id_us,$id_des, $pasejeros, $cantidad){
+        global $con;
+        $a=1;
+        while ($a <= $pasejeros) {
+            $consulta=$con->query("INSERT INTO boleto (id_usuario, id_destino, precio, fecha_compra, numero_pasj, num_boleto) 
+        VALUES ($id_us, $id_des, $cantidad, NOW(), '$a', NULL)");
+            
+        }
+        $consulta=$con->query("INSERT INTO boleto (id_usuario, id_destino, precio, pasajeros, fecha_compra, numero_pasj, num_boleto) 
+        VALUES ($id_us, $id_des, $cantidad, $pasejeros, NOW(),'$a', NULL)");
+        
+        
+    }
 ?>
