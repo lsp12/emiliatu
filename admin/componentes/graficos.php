@@ -115,6 +115,5 @@
                       </table>
                 <!-- <canvas id="provincia2" ></canvas> -->
             </div>
-          </div>
-        </div>
+          
         

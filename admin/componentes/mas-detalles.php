@@ -3,4 +3,5 @@
     <?php
         include_once("componentes/graficos.php");
     ?>
+
 </div>
