@@ -23,9 +23,9 @@ $con = connectDatabase();
         return recorrer($qery);
     }
 
-    function botonComprar($id_desti,$id_usu){
+    function botonComprar($id_desti,$id_usu,$id_ruta){
         global $con;
-        $query=$con->query("INSERT INTO `carrito` (`id_compra`, `destino`, `id_usuario`) VALUES (NULL, $id_desti, $id_usu);");
+        $query=$con->query("INSERT INTO `carrito` (`id_compra`, `destino`, `id_usuario`, `id_ruta`) VALUES (NULL, $id_desti, $id_usu , $id_ruta);");
     }
     function buscarDestino($id){
         global $con;
@@ -33,6 +33,7 @@ $con = connectDatabase();
         destino.nombre,
         destino.descripcion,
         fecha,
+        rutas.ID,
         destino.imagen
     FROM
         `rutas`
@@ -44,23 +45,24 @@ $con = connectDatabase();
     function Descripcion($id){
         global $con;
         $query=$con->query("SELECT * FROM `destino` WHERE id_destino = $id");
+        
+        return recorrer($query);
+    }
+    function Disponivilidad($id_des,$id_usu){
+        global $con;
+        $query=$con->query("SELECT * FROM `compras` WHERE id_destino = $id_des");   
         return recorrer($query);
     }
     function CarritoEle($id_usu){
         global $con;
         $query=$con->query("SELECT
-        nombre,
-        carrito.id_compra,
-        descripcion,
-        destino.imagen,
-        id_destino, 
-        usuario.username
+        destino.imagen, destino.nombre, rutas.fecha, carrito.id_compra, carrito.id_ruta, carrito.destino
     FROM
-        destino
-    INNER JOIN carrito ON carrito.destino = destino.id_destino
-    INNER JOIN usuario ON carrito.id_usuario = usuario.id_user
+        `carrito`
+    INNER JOIN destino ON carrito.destino = destino.id_destino
+    INNER JOIN rutas ON carrito.id_ruta = rutas.ID
     WHERE
-        usuario.id_user = $id_usu");
+        carrito.id_usuario = $id_usu");
         return recorrer($query);
     }
     
@@ -139,5 +141,11 @@ WHERE
     function EliminarCompra($id_compra){
         global $con;
         $query=$con->query("DELETE FROM `compras` WHERE `compras`.`id` = $id_compra");
+    }
+    function Dispon($id_ruta){
+        global $con;
+        $query=$con->query("SELECT compras.boletos FROM compras WHERE ruta_id = $id_ruta");
+        return recorrer($query);
+
     }
 ?>

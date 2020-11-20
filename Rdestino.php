@@ -1,14 +1,16 @@
 <?php
 require_once('modelo/general.php');
 $id=$_GET['id'];
+$id_ruta=$_GET['id_ruta'];
 $id_usu=$_GET['id_usu'];
 $id_carrito=$_GET['id_des'];
 $id_compra=$_GET['id_compra'];
 if(!$id==null){
     
-    botonComprar($id, $id_usu);
+    botonComprar($id, $id_usu, $id_ruta);
     $id=null;
     $id_usu=null;
+    $id_ruta=null;
     header("location: destinos.php");
 }
 

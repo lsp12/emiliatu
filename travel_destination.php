@@ -2,6 +2,13 @@
     $title = 'Emiliatu';
     include_once('componentes/head.php');
     include_once('componentes/header.php');
+    $id=$_SESSION['user_id']; 
+      
+      if($id==null){
+ 
+        header("location: login/index.php");
+        }
+      /* echo $id; */
     
 ?>
     <!-- bradcam_area  -->
@@ -11,7 +18,7 @@
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
                         <h3>Destino</h3>
-                        <p>Diseño perfecto de píxeles con contenidos asombrosos</p>
+                        
                     </div>
                 </div>
             </div>

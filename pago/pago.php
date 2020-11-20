@@ -8,6 +8,10 @@ if($id==null){
 	header("location: login/index.php");
 	}
 require_once("modeloPg/general2.php");
+	$id_us=$_GET['id_us'];
+	$id_des=$_GET['id_des'];
+	$id_carr=$_GET['id_carr'];
+	$id_ruta=$_GET['id_ruta'];
 ?>
 
 <!DOCTYPE html>
@@ -49,35 +53,57 @@ require_once("modeloPg/general2.php");
 						Metodo de Pago
 					</span>
 					<span class="txt1 p-b-11">
+						Destino
+					</span>
+					
+					<span class="login100-form p-b-32"   >
+					<?php
+					$fecha1=Fecha($id_ruta);
+					echo $fecha1[0]['nombre'];
+					?>
+					</span>
+
+					<span class="txt1 p-b-11">
 						Fecha de Salida
 					</span>
-					<div class="flex-sb-m w-full p-b-20">
-						<select class="form-control" required>
-							<option>-------</option>
-							<?php
-							$id_us=$_GET['id_us'];
-							$id_des=$_GET['id_des'];
-							$id_carr=$_GET['id_carr'];
-								$fecha=Fechas($id_des);
-								foreach ($fecha as $li) {
-									echo '
-										<option value="'.$li["fecha"].'">'.$li["fecha"].'</option>
-										';			
-								}
-							?>
-						</select>
-					</div>
+					
+					<span class="login100-form p-b-32"   >
+					<?php
+					$fecha1=Fecha($id_ruta);
+						
+						
+					echo $fecha1[0]['fecha'];
+						
+						
+					?>
+					</span>
 					
 					<span class="txt1 p-b-11">
 						Cantidad de personas
 					</span>
-					
+					<?php 
+					$fecha =Dispon($id_ruta);
+						$aux=0;
+							if($fecha == null):
+								 $aux=0; 
+							else:
+								 foreach ($fecha as $li) {
+									$aux+=$li['boletos'];
+								 }
+							endif;
+						?>
 					<div class="wrap-input100 validate-input m-b-36 p-b-11" data-validate = "Username is required">
 						<!-- <input class="input100" type="text" name="username" > -->
-						<input type="number" class="input-number input100" id="calcular" name="pasajero" value="1" min="1" max="20" onchange="myFunction()" required>
+						<input type="number" class="input-number input100" id="calcular" name="pasajero" value="1" min="1" max="<?php echo 40-$aux; ?>" onchange="myFunction()" required>
 						<span class="focus-input100"></span>
+						<span class="txt1 p-b-11">
+						
+
+						Asientos maximo disponibles <?php echo 40-$aux; ?>
+						</span>
 					</div>
 
+					
 					
 
 
@@ -157,7 +183,8 @@ require_once("modeloPg/general2.php");
 						$pasejeros=$_POST["pasajero"];
 						$cantidad=$_POST["total"];
 						
-						Compra($id_us,$id_des, $pasejeros, $cantidad);
+						
+						Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ruta);
 						EliminarC($id_carr);
 						header("location: ../travel_destination.php");
 					}

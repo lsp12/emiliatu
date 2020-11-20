@@ -42,13 +42,26 @@
                     <th scope="col">Imagen</th>
                     <th scope="col">Ciudad</th>
                     <th scope="col">Personas</th>
+                    <th scope="col">Asientos disponibles</th>
                     <th scope="col">Total</th>
                     <th scope="col">Accion</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $lista=CarritoEle($id);
+                  $lista=CarritoEle($id);
+                  /*  $fecha =Dispon($id_ruta);
+                   $aux=0;
+                     if($fecha == null):
+                        $aux=0; 
+                     else:
+                        foreach ($fecha as $li) {
+                         $aux+=$li['boletos'];
+                        }
+                     endif; */
+                 
+                    
+                    
                     foreach ($lista as $li) {
                       echo '
                       
@@ -70,13 +83,20 @@
                               <input type="number" class="input-number" id="calcular" name="quantity" value="1" min="1" max="20" onchange="myFunction()">
                             </div>
                           </td>
+                          <td>
+                          
+                          <div>
+                          <p> <h5> disponibles : 4 </h5></p>
+                          
+                      </div>
+                          </td>
                           <td class="my-fake-form">
                             <h5 name="precio" class="demo" id="posting-value-1">$15</h5>
                           </td>
                             <td class="ml-4>
                               <div class="d-flex flex-row">
-                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["id_destino"].'&id_carr='.$li["id_compra"].'" class="p-2 btn btn-success" id="submit-form-link">Comprar</a>
-                                <a href="Rdestino.php?id_des='.$li["id_destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
+                                <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["destino"].'&id_carr='.$li["id_compra"].'&id_ruta='.$li["id_ruta"].'" class="p-2 btn btn-success" id="submit-form-link">Comprar</a>
+                                <a href="Rdestino.php?id_des='.$li["destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>
                               </div>
                             <td>
                         </tr>
@@ -88,57 +108,7 @@
                   
                         
                   
-                  <!-- <tr class="bottom_button">
-                    <td>
-                    
-                      <a class="btn_1" href="#">Update Cart</a>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <div class="cupon_text float-right">
-                        <a class="btn_1" href="#">Close Coupon</a>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <h5>Subtotal</h5>
-                    </td>
-                    <td>
-                      <h5>$2160.00</h5>
-                    </td>
-                  </tr>
-                  <tr class="shipping_area">
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <h5>Shipping</h5>
-                    </td>
-                    <td>
-                      <div class="shipping_box">
-                        <ul class="list">
-                          <li>
-                            Flat Rate: $5.00
-                            
-                            <input type="radio" aria-label="Radio button for following text input">
-                          </li>
-                          <li>
-                            Free Shipping
-                            <input type="radio" aria-label="Radio button for following text input">
-                          </li>
-                          <li>
-                            Flat Rate: $10.00
-                            <input type="radio" aria-label="Radio button for following text input">
-                          </li>
-                          <li class="active">
-                            Local Delivery: $2.00
-                            <input type="radio" aria-label="Radio button for following text input">
-                          </li>
-                        </ul> -->
-                        <!--   -->
+                  
                       </div>
                     </td>
                   </tr>

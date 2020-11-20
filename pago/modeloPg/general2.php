@@ -24,10 +24,10 @@ function comprar($id_us,$id_des, $pasejeros, $cantidad){
 
 function Fechas($id_des){
     global $con;
-    $query=$con->query("SELECT fecha FROM `rutas` WHERE id_destino = $id_des");
+    $query=$con->query("SELECT fecha, ID FROM `rutas` WHERE id_destino = $id_des");
     return recorrer($query);
 }
-function Compra($id_us,$id_des, $pasejeros, $cantidad){
+function Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ru){
     global $con;
     $query=$con->query("INSERT INTO `compras`(
         `id`,
@@ -35,6 +35,7 @@ function Compra($id_us,$id_des, $pasejeros, $cantidad){
         `id_destino`,
         `boletos`,
         `costo`,
+        `ruta_id`,
         `Estado_pago`
     )
     VALUES(
@@ -43,6 +44,7 @@ function Compra($id_us,$id_des, $pasejeros, $cantidad){
         '$id_des',
         '$pasejeros',
         '$cantidad',
+        '$id_ru',
         'pendiente'
     )");
 }
@@ -50,4 +52,16 @@ function EliminarC($id_compra){
     global $con;
     $query=$con->query("DELETE FROM `carrito` WHERE `carrito`.`id_compra` = $id_compra");
 }
+function fecha($id_ruta){
+    global $con;
+    $query=$con->query("SELECT rutas.fecha, destino.nombre FROM rutas INNER JOIN destino ON destino.id_destino = rutas.id_destino WHERE rutas.ID = $id_ruta");
+    return recorrer($query);
+}
+
+    function Dispon($id_ruta){
+        global $con;
+        $query=$con->query("SELECT compras.boletos FROM compras WHERE ruta_id = $id_ruta");
+        return recorrer($query);
+
+    }
 ?>
