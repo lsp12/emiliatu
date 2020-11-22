@@ -27,10 +27,24 @@
                         
                         <?php
                           if(isset($_SESSION['user_id'])){
+                            
                               echo "<p>Fecha de salida: <br>";
                             $id=$_SESSION['user_id'];
                             foreach ($destino as $li) {
-                                echo '<a href="Rdestino.php?id='.$descri[0]["id_destino"].'&id_usu='.$id.'&id_ruta='.$li['ID'].'" class="boxed-btn4">'.$li['fecha'].'</a></p>';
+                                $num=$li['ID'];
+                                $fechaa=$li['fecha'];
+                                $fecha =Dispon($num);
+                                $aux=0;
+                                    if($fecha == null):
+                                        $aux=40; 
+                                    else:
+                                        foreach ($fecha as $li) {
+                                        $aux+=$li['boletos'];
+                                        }
+                                        $aux =40-$aux;
+                                    endif; 
+                                echo '<a href="Rdestino.php?id='.$descri[0]["id_destino"].'&id_usu='.$id.'&id_ruta='.$num.'" class="boxed-btn4">'.$fechaa.'</a></p>';
+                                echo '<h5> Asientos disponibles: '.$aux.' </h5>';
                               }
                         }else{
                             echo '<a href="cart.php" class="boxed-btn4">Iniciar Sesion</a></p>';
@@ -53,9 +67,7 @@
                             } */
                             
                         ?>
-                        <div>
-                            <p>Asientos disponibles : 4</p>
-                        </div>
+                        
                     </div>
                     
                 </div>

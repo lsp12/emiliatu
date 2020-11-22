@@ -50,19 +50,18 @@
                 <tbody>
                   <?php
                   $lista=CarritoEle($id);
-                  /*  $fecha =Dispon($id_ruta);
-                   $aux=0;
-                     if($fecha == null):
-                        $aux=0; 
-                     else:
-                        foreach ($fecha as $li) {
-                         $aux+=$li['boletos'];
-                        }
-                     endif; */
                  
-                    
-                    
-                    foreach ($lista as $li) {
+                     foreach ($lista as $li) {
+                      $fecha =Dispon($li["id_ruta"]);
+                             $aux=0;
+                               if($fecha == null):
+                                  $aux=40; 
+                               else:
+                                  foreach ($fecha as $lis) {
+                                   $aux+=$lis['boletos'];
+                                  }
+                                  $aux=40-$aux;
+                               endif;
                       echo '
                       
                         <tr class="text-center">
@@ -86,14 +85,14 @@
                           <td>
                           
                           <div>
-                          <p> <h5> disponibles : 4 </h5></p>
+                          <p> <h5> disponibles : '.$aux.' </h5></p>
                           
                       </div>
                           </td>
                           <td class="my-fake-form">
                             <h5 name="precio" class="demo" id="posting-value-1">$15</h5>
                           </td>
-                            <td class="ml-4>
+                            <td class="ml-4">
                               <div class="d-flex flex-row">
                                 <a href="pago/pago.php?id_us='.$id.'&id_des='.$li["destino"].'&id_carr='.$li["id_compra"].'&id_ruta='.$li["id_ruta"].'" class="p-2 btn btn-success" id="submit-form-link">Comprar</a>
                                 <a href="Rdestino.php?id_des='.$li["destino"].'" class="p-2"><img src="assets/img/svg_icon/basura.svg" alt="eliminar" style="height: 2rem;"></a>

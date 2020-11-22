@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2020 a las 22:29:24
+-- Tiempo de generación: 22-11-2020 a las 04:15:21
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -34,19 +34,35 @@ CREATE TABLE `boleto` (
   `precio` int(10) NOT NULL,
   `fecha_compra` date NOT NULL,
   `numero_pasj` int(11) NOT NULL,
-  `num_boleto` int(10) NOT NULL,
-  `Estado_pago` varchar(25) COLLATE utf32_spanish_ci NOT NULL
+  `num_boleto` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `boleto`
 --
 
-INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `numero_pasj`, `num_boleto`, `Estado_pago`) VALUES
-(23, 17, 60, '2020-09-10', 1, 10, 'aceptado'),
-(23, 17, 60, '2020-09-10', 2, 11, 'aceptado'),
-(23, 17, 60, '2020-09-10', 3, 12, 'aceptado'),
-(23, 17, 60, '2020-09-10', 4, 13, 'aceptado');
+INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `numero_pasj`, `num_boleto`) VALUES
+(23, 1, 135, '2020-11-07', 3, 4725),
+(23, 1, 135, '2020-11-07', 4, 4726),
+(23, 1, 135, '2020-11-07', 5, 4727),
+(23, 1, 135, '2020-11-07', 6, 4728),
+(23, 1, 135, '2020-11-07', 7, 4729),
+(23, 1, 135, '2020-11-07', 8, 4730),
+(21, 18, 150, '2020-11-07', 0, 4731),
+(21, 18, 150, '2020-11-07', 1, 4732),
+(21, 18, 150, '2020-11-07', 2, 4733),
+(21, 18, 150, '2020-11-07', 3, 4734),
+(24, 17, 15, '2020-11-19', 0, 4735),
+(24, 1, 135, '2020-11-21', 0, 4736),
+(24, 1, 135, '2020-11-21', 1, 4737),
+(24, 1, 135, '2020-11-21', 2, 4738),
+(24, 1, 135, '2020-11-21', 3, 4739),
+(24, 1, 135, '2020-11-21', 4, 4740),
+(24, 1, 135, '2020-11-21', 5, 4741),
+(24, 1, 135, '2020-11-21', 6, 4742),
+(24, 1, 135, '2020-11-21', 7, 4743),
+(24, 1, 135, '2020-11-21', 8, 4744),
+(24, 8, 15, '2020-11-21', 0, 4745);
 
 -- --------------------------------------------------------
 
@@ -85,16 +101,9 @@ INSERT INTO `buses` (`matricula`, `peso`, `altura`, `capacidad`, `estado`, `nume
 CREATE TABLE `carrito` (
   `id_compra` int(15) NOT NULL,
   `destino` int(50) NOT NULL,
-  `id_usuario` int(15) NOT NULL
+  `id_usuario` int(15) NOT NULL,
+  `id_ruta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
-
---
--- Volcado de datos para la tabla `carrito`
---
-
-INSERT INTO `carrito` (`id_compra`, `destino`, `id_usuario`) VALUES
-(19, 15, 21),
-(24, 7, 23);
 
 -- --------------------------------------------------------
 
@@ -108,6 +117,7 @@ CREATE TABLE `compras` (
   `id_destino` int(11) NOT NULL,
   `boletos` int(11) NOT NULL,
   `costo` int(11) NOT NULL,
+  `ruta_id` int(11) NOT NULL,
   `Estado_pago` varchar(30) COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
 
@@ -115,10 +125,13 @@ CREATE TABLE `compras` (
 -- Volcado de datos para la tabla `compras`
 --
 
-INSERT INTO `compras` (`id`, `id_usuario`, `id_destino`, `boletos`, `costo`, `Estado_pago`) VALUES
-(1, 21, 18, 4, 150, 'Aprobado'),
-(2, 23, 18, 4, 150, 'Aprobado'),
-(4, 23, 1, 9, 135, 'Aprobado');
+INSERT INTO `compras` (`id`, `id_usuario`, `id_destino`, `boletos`, `costo`, `ruta_id`, `Estado_pago`) VALUES
+(6, 21, 4, 3, 150, 34, 'pendiente'),
+(8, 24, 17, 1, 15, 58, 'Aprobado'),
+(10, 24, 8, 1, 15, 57, 'Aprobado'),
+(12, 24, 18, 6, 90, 59, 'pendiente'),
+(13, 24, 13, 7, 105, 54, 'pendiente'),
+(14, 24, 17, 15, 225, 58, 'pendiente');
 
 -- --------------------------------------------------------
 
@@ -230,7 +243,8 @@ INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`, `hora`
 (55, 12356543, 15, 'lsd-753', '2020-11-02', '23:55'),
 (56, 123245324, 16, 'hps-453', '2020-11-07', '23:56'),
 (57, 564545655, 8, 'kls-325', '2020-10-31', '23:56'),
-(58, 1207564565, 17, 'lsd-753', '2020-10-30', '23:57');
+(58, 1207564565, 17, 'lsd-753', '2020-10-30', '23:57'),
+(59, 123245324, 18, 'lsp-785', '2020-11-26', '18:01');
 
 -- --------------------------------------------------------
 
@@ -284,7 +298,8 @@ ALTER TABLE `buses`
 ALTER TABLE `carrito`
   ADD PRIMARY KEY (`id_compra`),
   ADD KEY `destino` (`destino`) USING BTREE,
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_ruta` (`id_ruta`);
 
 --
 -- Indices de la tabla `compras`
@@ -292,7 +307,8 @@ ALTER TABLE `carrito`
 ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_destino` (`id_destino`);
+  ADD KEY `id_destino` (`id_destino`),
+  ADD KEY `ruta_id` (`ruta_id`);
 
 --
 -- Indices de la tabla `destino`
@@ -329,7 +345,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `boleto`
 --
 ALTER TABLE `boleto`
-  MODIFY `num_boleto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `num_boleto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4746;
 
 --
 -- AUTO_INCREMENT de la tabla `buses`
@@ -341,13 +357,13 @@ ALTER TABLE `buses`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`
@@ -359,7 +375,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `rutas`
 --
 ALTER TABLE `rutas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -383,6 +399,7 @@ ALTER TABLE `boleto`
 --
 ALTER TABLE `carrito`
   ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`id_ruta`) REFERENCES `rutas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `r` FOREIGN KEY (`destino`) REFERENCES `destino` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -390,7 +407,8 @@ ALTER TABLE `carrito`
 --
 ALTER TABLE `compras`
   ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`);
+  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compras_ibfk_3` FOREIGN KEY (`ruta_id`) REFERENCES `rutas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `rutas`
