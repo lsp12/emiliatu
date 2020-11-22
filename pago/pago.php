@@ -12,13 +12,7 @@ require_once("modeloPg/general2.php");
 	$id_des=$_GET['id_des'];
 	$id_carr=$_GET['id_carr'];
 	$id_ruta=$_GET['id_ruta'];
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'email/Exception.php';
-require 'email/PHPMailer.php';
-require 'email/SMTP.php';
+	
 ?>
 
 <!DOCTYPE html>
@@ -190,6 +184,7 @@ require 'email/SMTP.php';
 						$pasejeros=$_POST["pasajero"];
 						$cantidad=$_POST["total"];
 						
+						enviar_email($id_us,$id_des, $pasejeros, $cantidad, $id_ruta);
 						
 						Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ruta);
 						EliminarC($id_carr);
