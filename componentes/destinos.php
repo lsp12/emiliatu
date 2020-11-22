@@ -29,7 +29,7 @@
                                 echo '
                                 <p class="d-flex align-items-center">'.$fli["nombre"].'
                                 <a href="destination_details.php?id='.$fli["id_destino"].'">infromacion</a>
-                                <a href="Rdestino.php?id='.$fli["id_destino"].'&id_usu='.$id.'" >Anadir al Carrito</a></p>
+                                
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                 echo '
                                 <p class="d-flex align-items-center">'.$fli["nombre"].'
                                 <a href="destination_details.php?id='.$fli["id_destino"].'">infromacion</a>
-                                <a href="cart.php" >Anadir al Carrito</a></p>
+                                
                             </div>
                         </div>
                     </div>
