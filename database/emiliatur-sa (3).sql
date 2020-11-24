@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2020 a las 04:15:21
+-- Tiempo de generación: 24-11-2020 a las 05:02:43
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -62,7 +62,50 @@ INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `num
 (24, 1, 135, '2020-11-21', 6, 4742),
 (24, 1, 135, '2020-11-21', 7, 4743),
 (24, 1, 135, '2020-11-21', 8, 4744),
-(24, 8, 15, '2020-11-21', 0, 4745);
+(24, 8, 15, '2020-11-21', 0, 4745),
+(24, 18, 90, '2020-11-22', 0, 4746),
+(24, 18, 90, '2020-11-22', 1, 4747),
+(24, 18, 90, '2020-11-22', 2, 4748),
+(24, 18, 90, '2020-11-22', 3, 4749),
+(24, 18, 90, '2020-11-22', 4, 4750),
+(24, 18, 90, '2020-11-22', 5, 4751),
+(24, 13, 105, '2020-11-22', 0, 4752),
+(24, 13, 105, '2020-11-22', 1, 4753),
+(24, 13, 105, '2020-11-22', 2, 4754),
+(24, 13, 105, '2020-11-22', 3, 4755),
+(24, 13, 105, '2020-11-22', 4, 4756),
+(24, 13, 105, '2020-11-22', 5, 4757),
+(24, 13, 105, '2020-11-22', 6, 4758),
+(24, 17, 225, '2020-11-22', 0, 4759),
+(24, 17, 225, '2020-11-22', 1, 4760),
+(24, 17, 225, '2020-11-22', 2, 4761),
+(24, 17, 225, '2020-11-22', 3, 4762),
+(24, 17, 225, '2020-11-22', 4, 4763),
+(24, 17, 225, '2020-11-22', 5, 4764),
+(24, 17, 225, '2020-11-22', 6, 4765),
+(24, 17, 225, '2020-11-22', 7, 4766),
+(24, 17, 225, '2020-11-22', 8, 4767),
+(24, 17, 225, '2020-11-22', 9, 4768),
+(24, 17, 225, '2020-11-22', 10, 4769),
+(24, 17, 225, '2020-11-22', 11, 4770),
+(24, 17, 225, '2020-11-22', 12, 4771),
+(24, 17, 225, '2020-11-22', 13, 4772),
+(24, 17, 225, '2020-11-22', 14, 4773),
+(24, 17, 225, '2020-11-22', 0, 4774),
+(24, 17, 225, '2020-11-22', 1, 4775),
+(24, 17, 225, '2020-11-22', 2, 4776),
+(24, 17, 225, '2020-11-22', 3, 4777),
+(24, 17, 225, '2020-11-22', 4, 4778),
+(24, 17, 225, '2020-11-22', 5, 4779),
+(24, 17, 225, '2020-11-22', 6, 4780),
+(24, 17, 225, '2020-11-22', 7, 4781),
+(24, 17, 225, '2020-11-22', 8, 4782),
+(24, 17, 225, '2020-11-22', 9, 4783),
+(24, 17, 225, '2020-11-22', 10, 4784),
+(24, 17, 225, '2020-11-22', 11, 4785),
+(24, 17, 225, '2020-11-22', 12, 4786),
+(24, 17, 225, '2020-11-22', 13, 4787),
+(24, 17, 225, '2020-11-22', 14, 4788);
 
 -- --------------------------------------------------------
 
@@ -129,9 +172,47 @@ INSERT INTO `compras` (`id`, `id_usuario`, `id_destino`, `boletos`, `costo`, `ru
 (6, 21, 4, 3, 150, 34, 'pendiente'),
 (8, 24, 17, 1, 15, 58, 'Aprobado'),
 (10, 24, 8, 1, 15, 57, 'Aprobado'),
-(12, 24, 18, 6, 90, 59, 'pendiente'),
-(13, 24, 13, 7, 105, 54, 'pendiente'),
-(14, 24, 17, 15, 225, 58, 'pendiente');
+(12, 24, 18, 6, 90, 59, 'Aprobado'),
+(13, 24, 13, 7, 105, 54, 'Aprobado'),
+(14, 24, 17, 15, 225, 58, 'Aprobado'),
+(15, 24, 17, 9, 135, 58, 'Cancelado'),
+(16, 24, 16, 14, 210, 56, 'pendiente'),
+(17, 24, 2, 7, 105, 41, 'pendiente'),
+(18, 24, 15, 5, 75, 55, 'pendiente'),
+(19, 24, 14, 2, 30, 53, 'pendiente'),
+(20, 24, 12, 3, 45, 52, 'pendiente'),
+(21, 24, 3, 4, 60, 44, 'pendiente'),
+(22, 24, 10, 1, 15, 50, 'pendiente'),
+(23, 24, 4, 3, 45, 34, 'pendiente'),
+(24, 24, 4, 1, 15, 34, 'pendiente'),
+(25, 24, 4, 3, 45, 34, 'pendiente');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `correos`
+--
+
+CREATE TABLE `correos` (
+  `id` int(11) NOT NULL,
+  `asunto` varchar(30) COLLATE utf32_spanish_ci NOT NULL,
+  `descripcion` varchar(200) COLLATE utf32_spanish_ci NOT NULL,
+  `estado_vista` varchar(30) COLLATE utf32_spanish_ci NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `correos`
+--
+
+INSERT INTO `correos` (`id`, `asunto`, `descripcion`, `estado_vista`, `fecha`) VALUES
+(1, 'compra de voletos', 'destino X manera X ', 'visto', '2020-11-18'),
+(2, 'compra de voletos', 'destino guallaquil', 'visto', '2020-11-24'),
+(3, 'compra de voletos', 'x destino', 'visto', '2020-11-24'),
+(4, 'compra de voletos', 'x destinos', 'visto', '2020-11-03'),
+(5, 'compra de voletos', 'el usuario  a comprado voletos para el destino: Ambato', 'visto', '2020-11-03'),
+(6, 'compra de voletos', 'el usuario  a comprado voletos para el destino: Ambato', 'visto', '2020-11-03'),
+(7, 'compra de voletos', 'el usuario admin a comprado voletos para el destino: Ambato', 'visto', '2020-11-03');
 
 -- --------------------------------------------------------
 
@@ -311,6 +392,12 @@ ALTER TABLE `compras`
   ADD KEY `ruta_id` (`ruta_id`);
 
 --
+-- Indices de la tabla `correos`
+--
+ALTER TABLE `correos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `destino`
 --
 ALTER TABLE `destino`
@@ -345,7 +432,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `boleto`
 --
 ALTER TABLE `boleto`
-  MODIFY `num_boleto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4746;
+  MODIFY `num_boleto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4789;
 
 --
 -- AUTO_INCREMENT de la tabla `buses`
@@ -357,13 +444,19 @@ ALTER TABLE `buses`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de la tabla `correos`
+--
+ALTER TABLE `correos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`

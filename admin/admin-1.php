@@ -33,7 +33,13 @@ ob_start();
 <body>
 <ul class="nav justify-content-end ">
   <li class="nav-item m-2">
-    <a class="nav-link active text-secondary p-3 mb-2" style="background-color: rgba(248, 251, 255, 0.904);border-radius: 15%;" href="../cerrar.php">Cerrar sesion</a>
+    <?php
+    include_once("componentes/modal.php"); 
+    ?>
+  </li>
+  <li class="nav-item m-2">
+  
+    <a class="btn btn-primary"  href="../cerrar.php">Cerrar sesion</a>
   </li>
 </ul>
     <div class="container-fluid fondo mb-3 pb-4 rounded-lg">

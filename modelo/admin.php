@@ -283,6 +283,8 @@ INNER JOIN usuario ON usuario.id_user = compras.id_usuario
 WHERE
     compras.id = $id_ruta");
     $ruta = recorrer($query);
+    
+    
     //Create a new PHPMailer instance
     $mail = new PHPMailer();
     
@@ -375,6 +377,7 @@ WHERE
        
     }
     enviar_a($ruta);
+    
 }
 
 
@@ -594,4 +597,21 @@ function enviar_a($ruta){
         
 }
 
+function notificaciones(){
+    global $con;
+    $query=$con->query("SELECT * FROM `correos` WHERE estado_vista = 'no leido' ORDER BY `correos`.`id` ASC");
+    return recorrer($query);
+}
+function marcarLe(){
+    global $con;
+    $query=$con->query("UPDATE `correos` SET `estado_vista` = 'visto' WHERE `correos`.`estado_vista` = 'no leido';");
+ 
+}
+
+
+function leidos(){
+    global $con;
+    $query=$con->query("SELECT * FROM `correos` WHERE estado_vista = 'visto' ORDER BY `correos`.`id` ASC");
+    return recorrer($query);
+}
 ?>

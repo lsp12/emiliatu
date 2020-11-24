@@ -92,6 +92,7 @@ INNER JOIN empleado ON empleado.cedula = rutas.id_emple
 WHERE
     rutas.ID = $id_ruta");
     $ruta = recorrer($query);
+    enviarNo($usuario[0]['username'],$ruta[0]['nombre']);
     //Create a new PHPMailer instance
     $mail = new PHPMailer();
     
@@ -284,6 +285,13 @@ function enviar_a($usuario, $ruta){
     }
     
         
+}
+function enviarNo($usuario,$destino){
+    global $con;
+    
+    $desino="el usuario $usuario a comprado voletos para el destino: $destino";
+    $query=$con->query("INSERT INTO `correos` (`id`, `asunto`, `descripcion`, `estado_vista`, `fecha`) VALUES (NULL, 'compra de voletos', '$desino', 'no leido', NOW());");
+    
 }
 ?>
 
