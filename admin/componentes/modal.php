@@ -17,7 +17,7 @@ foreach($noti as $conta){
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Notificaciones</h5>
@@ -26,7 +26,7 @@ foreach($noti as $conta){
         </button>
       </div>
       <div class="modal-body">
-      <div><p><b>No leidos</b></p></div>
+      <div><p><b style='color: royalblue;'>No leidos</b></p></div>
     <table class="table">
   <thead>
     <tr>
@@ -52,7 +52,7 @@ foreach($noti as $conta){
       ?>
   </tbody>
 </table>
-<div><p><b>Leidos</b></p></div>
+<div><p><b style='color: royalblue;'>Leidos</b></p></div>
 <table class="table">
   <thead>
     <tr>
