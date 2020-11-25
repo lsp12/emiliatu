@@ -611,7 +611,7 @@ function marcarLe(){
 
 function leidos(){
     global $con;
-    $query=$con->query("SELECT * FROM `correos` WHERE estado_vista = 'visto' ORDER BY `correos`.`id` ASC");
+    $query=$con->query("SELECT * FROM `correos` WHERE estado_vista = 'visto' ORDER BY `correos`.`id` DESC LIMIT 5");
     return recorrer($query);
 }
 ?>
