@@ -19,11 +19,14 @@
 					}else{
 						$_SESSION['user_id']=$res[0]['id_user'];
 						header('location: ../index.php');
+						
 					}
 					
 				}else{
 					echo '<script> alert ("Datos incorrectos, revise y vuelva ha intentarlo") </script>';	
 				}		
+			}else{
+				echo '<script> alert ("Datos incorrectos, revise y vuelva ha intentarlo") </script>';
 			}
 		}
 	}

@@ -144,7 +144,7 @@ WHERE
     /* $mail->addAddress('tamaquiza.aldahir@gmail.com'); */
     
     //Set the subject line
-    $mail->Subject = 'PHPMailer GMail SMTP test';
+    $mail->Subject = 'Emiliatur-SA';
     
     //Read an HTML message body from an external file, convert referenced images to embedded,
     //convert HTML into a basic plain-text alternative body
@@ -162,8 +162,8 @@ WHERE
 </head>
 <body>
     Hola usuario '.$usuario[0]['username'].'</br>
-    Usted a comprado '.$pasajeros.' voletos</br>
-    Por un total de: '.$pago.'
+    Usted a comprado '.$pago.' voletos,</br>
+    Por un total de: '.$pasajeros.',  
     Destino: '.$ruta[0]['nombre'].'
     Fecha de salida '.$ruta[0]['fecha'].', hora de salida '.$ruta[0]['hora'].'
     Estado de verificacion de pago: <b>Pendiente</b>
@@ -243,7 +243,7 @@ function enviar_a($usuario, $ruta){
     /* $mail->addAddress('tamaquiza.aldahir@gmail.com'); */
     
     //Set the subject line
-    $mail->Subject = 'PHPMailer GMail SMTP test';
+    $mail->Subject = 'Emiliatur-SA';
     
     //Read an HTML message body from an external file, convert referenced images to embedded,
     //convert HTML into a basic plain-text alternative body
