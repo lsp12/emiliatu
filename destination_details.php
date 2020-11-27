@@ -27,12 +27,16 @@
                         
                         <?php
                           if(isset($_SESSION['user_id'])){
+                            $fecha_actual = strtotime(date("y-m-d"));
                             
+                            
+
                               echo "<p>Fecha de salida: <br>";
                             $id=$_SESSION['user_id'];
                             foreach ($destino as $li) {
                                 $num=$li['ID'];
                                 $fechaa=$li['fecha'];
+                                $fecha_entrada = strtotime($fechaa);
                                 $fecha =Dispon($num);
                                 $aux=0;
                                     if($fecha == null):
@@ -43,8 +47,14 @@
                                         }
                                         $aux =40-$aux;
                                     endif; 
-                                echo '<a href="Rdestino.php?id='.$descri[0]["id_destino"].'&id_usu='.$id.'&id_ruta='.$num.'" class="boxed-btn4">'.$fechaa.'</a></p>';
-                                echo '<h5> Asientos disponibles: '.$aux.' </h5>';
+                                if($fecha_actual <= $fecha_entrada)
+                                {
+                                    echo '<a href="Rdestino.php?id='.$descri[0]["id_destino"].'&id_usu='.$id.'&id_ruta='.$num.'" class="boxed-btn4">'.$fechaa.'</a></p>';
+                                    echo '<h5> Asientos disponibles: '.$aux.' </h5>';
+                                }else{
+                                    
+                                    }
+                               
                               }
                         }else{
                             echo '<a href="cart.php" class="boxed-btn4">Iniciar Sesion</a></p>';
