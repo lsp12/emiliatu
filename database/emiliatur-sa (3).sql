@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2020 a las 05:02:43
+-- Tiempo de generación: 11-12-2020 a las 17:32:44
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -115,7 +115,7 @@ INSERT INTO `boleto` (`id_usuario`, `id_destino`, `precio`, `fecha_compra`, `num
 
 CREATE TABLE `buses` (
   `matricula` varchar(10) COLLATE utf32_spanish_ci NOT NULL,
-  `peso` int(10) NOT NULL,
+  `peso` int(50) NOT NULL,
   `altura` int(10) NOT NULL,
   `capacidad` int(10) NOT NULL,
   `estado` varchar(10) COLLATE utf32_spanish_ci NOT NULL,
@@ -128,12 +128,15 @@ CREATE TABLE `buses` (
 
 INSERT INTO `buses` (`matricula`, `peso`, `altura`, `capacidad`, `estado`, `numeroVehiculo`) VALUES
 ('ESP-123', 45, 10, 40, 'activo', 1),
+('gol-123', 0, 25, 40, 'activo', 8),
+('gol-sls', 0, 25, 40, 'activo', 9),
 ('hps-453', 30, 25, 40, 'inactivo', 2),
 ('jps-546', 30, 40, 40, 'inactivo', 3),
 ('kls-325', 25, 40, 40, 'activo', 5),
 ('ksj-951', 50, 20, 40, 'activo', 7),
 ('lsd-753', 30, 25, 40, 'activo', 6),
-('lsp-785', 30, 25, 40, 'activo', 4);
+('lsp-785', 30, 25, 40, 'activo', 4),
+('mol-451', 0, 12, 40, 'activo', 11);
 
 -- --------------------------------------------------------
 
@@ -438,7 +441,7 @@ ALTER TABLE `boleto`
 -- AUTO_INCREMENT de la tabla `buses`
 --
 ALTER TABLE `buses`
-  MODIFY `numeroVehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `numeroVehiculo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `carrito`

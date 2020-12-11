@@ -40,7 +40,7 @@
               $Altura=$_POST['Altura'];
               $capacidad=$_POST['capacidad'];
               $estado=$_POST['estado'];
-              InsertarBus($matricula,$peso,$Altura,$capacidad,$estado);
+              InsertarBus($matricula,$Peso,$Altura,$capacidad,$estado);
             }
             ?>
   </div>
