@@ -137,7 +137,7 @@ require_once("modeloPg/general2.php");
 						</div>	
 					</div> -->
 					<div class="flex-sb-m w-full p-b-20">
-						<select class="form-control" required>
+						<select class="form-control" name="Tipo" required>
 							<option>-------</option>
 							<option value="Credito">Credito</option>
 							<option value="Debito">Debito</option>
@@ -183,10 +183,10 @@ require_once("modeloPg/general2.php");
 						
 						$pasejeros=$_POST["pasajero"];
 						$cantidad=$_POST["total"];
+						$tipo=$_POST["Tipo"];
+						enviar_email($id_us,$id_des, $pasejeros, $cantidad, $id_ruta,$tipo);
 						
-						enviar_email($id_us,$id_des, $pasejeros, $cantidad, $id_ruta);
-						
-						Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ruta);
+						Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ruta, $tipo);
 						EliminarC($id_carr);
 						header("location: ../travel_destination.php");
 					}

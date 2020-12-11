@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2020 a las 17:32:44
+-- Tiempo de generación: 11-12-2020 a las 18:26:26
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -163,6 +163,7 @@ CREATE TABLE `compras` (
   `id_destino` int(11) NOT NULL,
   `boletos` int(11) NOT NULL,
   `costo` int(11) NOT NULL,
+  `TpPago` varchar(50) COLLATE utf32_spanish_ci NOT NULL,
   `ruta_id` int(11) NOT NULL,
   `Estado_pago` varchar(30) COLLATE utf32_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish_ci;
@@ -171,24 +172,26 @@ CREATE TABLE `compras` (
 -- Volcado de datos para la tabla `compras`
 --
 
-INSERT INTO `compras` (`id`, `id_usuario`, `id_destino`, `boletos`, `costo`, `ruta_id`, `Estado_pago`) VALUES
-(6, 21, 4, 3, 150, 34, 'pendiente'),
-(8, 24, 17, 1, 15, 58, 'Aprobado'),
-(10, 24, 8, 1, 15, 57, 'Aprobado'),
-(12, 24, 18, 6, 90, 59, 'Aprobado'),
-(13, 24, 13, 7, 105, 54, 'Aprobado'),
-(14, 24, 17, 15, 225, 58, 'Aprobado'),
-(15, 24, 17, 9, 135, 58, 'Cancelado'),
-(16, 24, 16, 14, 210, 56, 'pendiente'),
-(17, 24, 2, 7, 105, 41, 'pendiente'),
-(18, 24, 15, 5, 75, 55, 'pendiente'),
-(19, 24, 14, 2, 30, 53, 'pendiente'),
-(20, 24, 12, 3, 45, 52, 'pendiente'),
-(21, 24, 3, 4, 60, 44, 'pendiente'),
-(22, 24, 10, 1, 15, 50, 'pendiente'),
-(23, 24, 4, 3, 45, 34, 'pendiente'),
-(24, 24, 4, 1, 15, 34, 'pendiente'),
-(25, 24, 4, 3, 45, 34, 'pendiente');
+INSERT INTO `compras` (`id`, `id_usuario`, `id_destino`, `boletos`, `costo`, `TpPago`, `ruta_id`, `Estado_pago`) VALUES
+(6, 21, 4, 3, 150, '', 34, 'pendiente'),
+(8, 24, 17, 1, 15, '', 58, 'Aprobado'),
+(10, 24, 8, 1, 15, '', 57, 'Aprobado'),
+(12, 24, 18, 6, 90, '', 59, 'Aprobado'),
+(13, 24, 13, 7, 105, '', 54, 'Aprobado'),
+(14, 24, 17, 15, 225, '', 58, 'Aprobado'),
+(15, 24, 17, 9, 135, '', 58, 'Cancelado'),
+(16, 24, 16, 14, 210, '', 56, 'pendiente'),
+(17, 24, 2, 7, 105, '', 41, 'pendiente'),
+(18, 24, 15, 5, 75, '', 55, 'pendiente'),
+(19, 24, 14, 2, 30, '', 53, 'pendiente'),
+(20, 24, 12, 3, 45, '', 52, 'pendiente'),
+(21, 24, 3, 4, 60, '', 44, 'pendiente'),
+(22, 24, 10, 1, 15, '', 50, 'pendiente'),
+(23, 24, 4, 3, 45, '', 34, 'pendiente'),
+(24, 24, 4, 1, 15, '', 34, 'pendiente'),
+(25, 24, 4, 3, 45, 'credito', 34, 'pendiente'),
+(26, 25, 1, 4, 150, 'credito', 59, 'pendiente'),
+(27, 26, 2, 1, 15, 'Credito', 60, 'pendiente');
 
 -- --------------------------------------------------------
 
@@ -215,7 +218,10 @@ INSERT INTO `correos` (`id`, `asunto`, `descripcion`, `estado_vista`, `fecha`) V
 (4, 'compra de voletos', 'x destinos', 'visto', '2020-11-03'),
 (5, 'compra de voletos', 'el usuario  a comprado voletos para el destino: Ambato', 'visto', '2020-11-03'),
 (6, 'compra de voletos', 'el usuario  a comprado voletos para el destino: Ambato', 'visto', '2020-11-03'),
-(7, 'compra de voletos', 'el usuario admin a comprado voletos para el destino: Ambato', 'visto', '2020-11-03');
+(7, 'compra de voletos', 'el usuario admin a comprado voletos para el destino: Ambato', 'visto', '2020-11-03'),
+(8, 'compra de voletos', 'el usuario jonathan a comprado voletos para el destino: Quito', 'no leido', '2020-12-11'),
+(9, 'compra de voletos', 'el usuario jonathan a comprado voletos para el destino: Quito', 'no leido', '2020-12-11'),
+(10, 'compra de voletos', 'el usuario jonathan a comprado voletos para el destino: Quito', 'no leido', '2020-12-11');
 
 -- --------------------------------------------------------
 
@@ -328,7 +334,8 @@ INSERT INTO `rutas` (`ID`, `id_emple`, `id_destino`, `id_buses`, `fecha`, `hora`
 (56, 123245324, 16, 'hps-453', '2020-11-07', '23:56'),
 (57, 564545655, 8, 'kls-325', '2020-10-31', '23:56'),
 (58, 1207564565, 17, 'lsd-753', '2020-10-30', '23:57'),
-(59, 123245324, 18, 'lsp-785', '2020-11-26', '18:01');
+(59, 123245324, 18, 'lsp-785', '2020-11-26', '18:01'),
+(60, 12356543, 2, 'ESP-123', '2020-12-12', '12:21');
 
 -- --------------------------------------------------------
 
@@ -355,7 +362,8 @@ INSERT INTO `usuario` (`id_user`, `username`, `email`, `clave`) VALUES
 (21, 'coello', 'g@mai.com', '$2y$10$I52109L.Y135.0hWDv6lTePzFEj.CXdwZgcubdGLgKz'),
 (23, 'n@omy', 'n@omy.com', '$2y$10$M6u3bK5CPaTSbYXCyh3aYOkA729fEg0g1SGg.Zd8WcHUbzS25q.82'),
 (24, 'admin', 'admin@gmail.com', '$2y$10$HPL5aX3NwmmgFju2M5WKregjXYXqt8Y2u4Bf1ic7u8qasSTCacjqi'),
-(25, 'lsp12', 'asd2@das.cop', '$2y$10$yjhzBvgMgdPmEErvRbYuxOVSPXmTr4Maw4sboBzAAwpcYvB.lX3FW');
+(25, 'lsp12', 'asd2@das.cop', '$2y$10$yjhzBvgMgdPmEErvRbYuxOVSPXmTr4Maw4sboBzAAwpcYvB.lX3FW'),
+(26, 'jonathan', 'jonathankenny852@gmail.com', '$2y$10$lMsxiCmEvYPDJKz6psswuOHLIz4yFAVm0VxKdptijy4./yvrIBq7O');
 
 --
 -- Índices para tablas volcadas
@@ -447,19 +455,19 @@ ALTER TABLE `buses`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_compra` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`
@@ -471,13 +479,13 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `rutas`
 --
 ALTER TABLE `rutas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Restricciones para tablas volcadas

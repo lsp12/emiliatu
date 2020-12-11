@@ -27,7 +27,7 @@ function Fechas($id_des){
     $query=$con->query("SELECT fecha, ID FROM `rutas` WHERE id_destino = $id_des");
     return recorrer($query);
 }
-function Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ru){
+function Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ru, $tipo){
     global $con;
     $query=$con->query("INSERT INTO `compras`(
         `id`,
@@ -35,6 +35,7 @@ function Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ru){
         `id_destino`,
         `boletos`,
         `costo`,
+        `TpPago`,
         `ruta_id`,
         `Estado_pago`
     )
@@ -44,9 +45,11 @@ function Compra($id_us,$id_des, $pasejeros, $cantidad, $id_ru){
         '$id_des',
         '$pasejeros',
         '$cantidad',
+        '$tipo',
         '$id_ru',
         'pendiente'
     )");
+    
 }
 function EliminarC($id_compra){
     global $con;
@@ -72,7 +75,7 @@ use PHPMailer\PHPMailer\SMTP;
     require 'PHPMailer/src/Exception.php';
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
-function enviar_email($id_usu, $id_des, $pago, $pasajeros, $id_ruta){
+function enviar_email($id_usu, $id_des, $pago, $pasajeros, $id_ruta, $tipo){
     
     
     global $con;
@@ -163,7 +166,7 @@ WHERE
 <body>
     Hola usuario '.$usuario[0]['username'].'</br>
     Usted a comprado '.$pago.' voletos,</br>
-    Por un total de: '.$pasajeros.',  
+    Por un total de: '.$pasajeros.', su tipo de Pago es: '.$tipo.'  
     Destino: '.$ruta[0]['nombre'].'
     Fecha de salida '.$ruta[0]['fecha'].', hora de salida '.$ruta[0]['hora'].'
     Estado de verificacion de pago: <b>Pendiente</b>
@@ -185,10 +188,10 @@ WHERE
        
     }
     
-    enviar_a($usuario, $ruta);
+    enviar_a($usuario, $ruta, $tipo);
 }
 
-function enviar_a($usuario, $ruta){
+function enviar_a($usuario, $ruta, $tipo){
     
     
     
@@ -263,7 +266,7 @@ function enviar_a($usuario, $ruta){
     El usuario '.$usuario[0]['username'].'</br>
     a comprado
     Destino: '.$ruta[0]['nombre'].'
-    Fecha de salida '.$ruta[0]['fecha'].', hora de salida '.$ruta[0]['hora'].'
+    Fecha de salida '.$ruta[0]['fecha'].', hora de salida '.$ruta[0]['hora'].', A comprado con '.$tipo.'
     Estado de verificacion de pago: <b>Pendiente</b> 
     Entre al administrador para validar o cancelar el pago
     Su conductor es '.$ruta[0]['nombre_emp'].' '.$ruta[0]['apellido'].'

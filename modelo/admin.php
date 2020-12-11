@@ -274,7 +274,7 @@ function enviar_email($id_ruta){
     rutas.hora,
     destino.nombre,
     destino.descripcion,
-    usuario.username, usuario.email, compras.boletos, compras.costo, compras.Estado_pago
+    usuario.username, usuario.email, compras.boletos, compras.costo, compras.Estado_pago, compras.TpPago
 FROM
     `compras`
 INNER JOIN rutas ON rutas.ID = compras.ruta_id
@@ -355,7 +355,7 @@ WHERE
 <body>
     Hola usuario '.$ruta[0]['username'].' Su pago a sido aprobado</br>
     Usted a comprado '.$ruta[0]['boletos'].' voletos</br>
-    Por un total de: '.$ruta[0]['costo'].'
+    Por un total de: '.$ruta[0]['costo'].', el Tipo de pago es : '.$ruta[0]['TpPago'].'
     Destino: '.$ruta[0]['nombre'].'
     Fecha de salida '.$ruta[0]['fecha'].', hora de salida '.$ruta[0]['hora'].'
     Estado de verificacion de pago: <b>Aprobado</b>
@@ -395,7 +395,7 @@ function enviar_recha($id_ruta){
     rutas.hora,
     destino.nombre,
     destino.descripcion,
-    usuario.username, usuario.email, compras.boletos, compras.costo,compras.Estado_pago
+    usuario.username, usuario.email, compras.boletos, compras.costo,compras.Estado_pago, compras.TpPago
 FROM
     `compras`
 INNER JOIN rutas ON rutas.ID = compras.ruta_id
@@ -573,6 +573,7 @@ function enviar_a($ruta){
     El usuario '.$ruta[0]['username'].'</br>
     a comprado
     Destino: '.$ruta[0]['nombre'].'
+    , el Tipo de pago es : '.$ruta[0]['TpPago'].'
     Fecha de salida '.$ruta[0]['fecha'].', hora de salida '.$ruta[0]['hora'].'
     Estado de verificacion de pago: <b>Pendiente</b> 
     se a cambiado el estado a: '.$ruta[0]['Estado_pago'].'
