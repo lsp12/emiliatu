@@ -211,7 +211,7 @@
 
     function EstadoBs(){
         global $con;
-        $query=$con->query("SELECT `numeroVehiculo`, `estado`, `matricula` FROM `buses` ORDER BY `buses`.`numeroVehiculo` ASC");
+        $query=$con->query("SELECT `numeroVehiculo`, `estado`, `matricula` FROM `buses` ORDER BY `buses`.`numeroVehiculo` DESC");
         return recorrer($query);
     }
 
