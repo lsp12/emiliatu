@@ -184,8 +184,23 @@
     }
     function EstadoPg(){
         global $con;
-        $query = $con->query("SELECT usuario.id_user, usuario.username, usuario.email, compras.id, destino.nombre, compras.id_destino, compras.boletos, compras.costo FROM compras 
-        INNER JOIN usuario ON usuario.id_user=compras.id_usuario INNER JOIN destino ON destino.id_destino = compras.id_destino WHERE compras.Estado_pago='pendiente';");
+        $query = $con->query("SELECT
+        usuario.id_user,
+        usuario.username,
+        usuario.email,
+        compras.id,
+        destino.nombre,
+        compras.id_destino,
+        compras.boletos,
+        compras.costo
+    FROM
+        compras
+    INNER JOIN usuario ON usuario.id_user = compras.id_usuario
+    INNER JOIN destino ON destino.id_destino = compras.id_destino
+    WHERE
+        compras.Estado_pago = 'pendiente'
+    ORDER BY
+        `compras`.`id` ASC");
         return recorrer($query);
         }
     function Destinodoc($id_des){
