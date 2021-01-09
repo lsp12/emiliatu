@@ -83,7 +83,7 @@
                         $hora=$_POST['hora'];
                         $id_bus=$_POST['bus'];
                         $ced=$_POST['conductor'];
-                        $fecha1 = date("yy-m-d", strtotime($fecha));
+                        $fecha1 = date("y-m-d", strtotime($fecha));
                         /* actualizarDestino($id_des, $fecha1, $hora,$ced,$id_bus); */
                         agregarfecha($ced,$id_des,$id_bus, $fecha1,$hora);
                         /* $act=buscarRutas($id_des,$ced,$fecha1,$id_bus);
